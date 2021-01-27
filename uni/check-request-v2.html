@@ -1,0 +1,2230 @@
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+
+<head>
+    <style>
+        .navbar-brand>img {
+            display: inline !important;
+            height: 28px !important;
+            width: 28px !important;
+        }
+
+        .button-3d {
+            display: block;
+            font-size: 16px;
+            text-align: center;
+            line-height: 44px;
+            text-decoration: none;
+            color: white;
+            background-color: #37474F;
+            border-radius: 4px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 210px;
+            height: 44px;
+            margin-top: -22px;
+            margin-left: -100px;
+            text-shadow: 0 -1px -1px #af3a2a;
+            -moz-box-shadow: 0 4px 0 #af3a2a, 0 5px 5px 1px rgba(0, 0, 0, 0.4);
+            -webkit-box-shadow: 0 4px 0 #af3a2a, 0 5px 5px 1px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 4px 0 #af3a2a, 0 5px 5px 1px rgba(0, 0, 0, 0.4);
+            -moz-transition: all 0.15s ease-in-out;
+            -o-transition: all 0.15s ease-in-out;
+            -webkit-transition: all 0.15s ease-in-out;
+            transition: all 0.15s ease-in-out;
+        }
+
+        .class {
+            display: none !important;
+        }
+
+        .button-3d:hover {
+            background-color: #37474F;
+            color: white;
+            text-shadow: 0 -1px -1px #c4402f;
+            -moz-box-shadow: 0 4px 0 #c4402f, 0 5px 5px 1px rgba(0, 0, 0, 0.4);
+            -webkit-box-shadow: 0 4px 0 #c4402f, 0 5px 5px 1px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 4px 0 #c4402f, 0 5px 5px 1px rgba(0, 0, 0, 0.4);
+        }
+
+        .button-3d:active {
+            margin-top: -18px;
+            color: white;
+            -moz-box-shadow: none;
+            -webkit-box-shadow: none;
+            box-shadow: none;
+        }
+
+        .circle-loader {
+            margin-bottom: 3.5em;
+            border: 1px solid rgba(0, 0, 0, 0.2);
+            border-left-color: #5cb85c;
+            animation: loader-spin 1.2s infinite linear;
+            position: relative;
+            display: inline-block;
+            vertical-align: top;
+            border-radius: 50%;
+            width: 7em;
+            height: 7em;
+        }
+
+        .navbar-brand>img {
+            display: inline !important;
+            height: 28px !important;
+            width: 28px;
+        }
+
+        .load-complete {
+            -webkit-animation: none;
+            animation: none;
+            border-color: #5cb85c;
+            transition: border 500ms ease-out;
+        }
+
+        .checkmark {
+            display: none;
+        }
+
+        .checkmark.draw:after {
+            animation-duration: 800ms;
+            animation-timing-function: ease;
+            animation-name: checkmark;
+            transform: scaleX(-1) rotate(135deg);
+        }
+
+        .checkmark:after {
+            opacity: 1;
+            height: 3.5em;
+            width: 1.75em;
+            transform-origin: left top;
+            border-right: 3px solid #5cb85c;
+            border-top: 3px solid #5cb85c;
+            content: '';
+            left: 1.75em;
+            top: 3.5em;
+            position: absolute;
+        }
+
+        @keyframes loader-spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes checkmark {
+            0% {
+                height: 0;
+                width: 0;
+                opacity: 1;
+            }
+
+            20% {
+                height: 0;
+                width: 1.75em;
+                opacity: 1;
+            }
+
+            40% {
+                height: 3.5em;
+                width: 1.75em;
+                opacity: 1;
+            }
+
+            100% {
+                height: 3.5em;
+                width: 1.75em;
+                opacity: 1;
+            }
+        }
+
+        .app {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .btn-check {
+            border-radius: 4px;
+            width: 210px;
+            background-color: #37474F;
+            border: 0;
+            padding: 8px 32px;
+            color: white;
+        }
+
+        .btn-check:hover {
+            cursor: pointer;
+            color: white !important;
+            background-color: #039b7a;
+        }
+
+        .process {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .check-icon {
+            margin-bottom: 1rem;
+            width: 124px;
+            height: 124px;
+            transform-origin: center;
+        }
+
+        .check-icon path {
+            stroke: #03b48e;
+        }
+
+        .wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            flex-wrap: wrap;
+            height: 100%;
+        }
+
+        .wrapper .card {
+            display: block;
+            margin: 10px auto;
+            padding: 15px 30px;
+            background-color: white;
+            border: 1px solid #bbb;
+            border-radius: 6px;
+            color: #888;
+            text-align: center;
+            transition: border-color, color 250ms ease;
+            user-select: none;
+        }
+
+        .connection {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .connection span {
+            flex-grow: 0;
+            flex-shrink: 0;
+            margin: 0;
+            padding: 0;
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background-color: #ffcc00;
+            box-shadow: inset 0 0 1px 1px rgba(0, 0, 0, 0.1);
+        }
+
+        .connection[data-dir="vertical"] {
+            flex-direction: column;
+            height: 50px;
+        }
+
+        .connection[data-dir="vertical"] span {
+            margin-bottom: 5px;
+            animation-name: connection-vertical;
+            animation-duration: 800ms;
+            animation-iteration-count: infinite;
+        }
+
+        .connection[data-dir="horizontal"] {
+            flex-direction: row;
+            width: 50px;
+            height: 10px;
+        }
+
+        .connection[data-dir="horizontal"] span {
+            margin-right: 5px;
+            animation-name: connection-horizontal;
+            animation-duration: 800ms;
+            animation-iteration-count: infinite;
+        }
+
+        @keyframes connection-vertical {
+            from {
+                transform: translate(0);
+            }
+
+            to {
+                transform: translateY(10px);
+            }
+        }
+
+        @keyframes connection-horizontal {
+            from {
+                transform: translate(0);
+            }
+
+            to {
+                transform: translateX(10px);
+            }
+        }
+
+        .card#db {
+            animation: pulse 5s 0s infinite ease;
+        }
+
+        .card#server {
+            animation: pulse 5s 1s infinite ease;
+        }
+
+        .card#user {
+            animation: pulse 5s 2s infinite ease;
+        }
+
+        @keyframes pulse {
+            0% {
+                border-color: #ffcc00;
+                color: black;
+            }
+
+            20%,
+            100% {
+                border-color: #bbb;
+                color: #999;
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .col-lg-1 {
+                float: none !important;
+                margin: 0px auto;
+            }
+        }
+
+        *,
+        *:after,
+        *::before {
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            text-decoration: none;
+            list-style-type: none;
+            outline: none;
+        }
+
+        #photo_id img {
+            border-radius: 10px;
+            width: 100%;
+        }
+
+        #photo_id {
+            width: 130px;
+            height: auto;
+            margin: 0px auto;
+            border-radius: 10px;
+            border: white solid 2px;
+            box-shadow: 0px 0px 3px #555;
+            margin-top: 20px;
+        }
+
+        @keyframes scan {
+            0% {
+                transform: translate(55px, 24px);
+            }
+
+            40% {
+                transform: translate(55px, 220px);
+            }
+
+            60% {
+                transform: translate(55px, 24px);
+            }
+
+            to {
+                transform: translate(55px, 24px);
+            }
+        }
+
+        @keyframes showreel {
+            0% {
+                transform: translateX(0);
+            }
+
+            10% {
+                transform: translateX(0);
+            }
+
+            20% {
+                transform: translateX(-285px);
+            }
+
+            30% {
+                transform: translateX(-285px);
+            }
+
+            40% {
+                transform: translateX(-570px);
+            }
+
+            50% {
+                transform: translateX(-570px);
+            }
+
+            60% {
+                transform: translateX(-855px);
+            }
+
+            70% {
+                transform: translateX(-855px);
+            }
+
+            80% {
+                transform: translateX(-1140px);
+            }
+
+            90% {
+                transform: translateX(-1140px);
+            }
+        }
+
+        #Scanner {
+            animation: scan 2.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
+        }
+
+        #Cards {
+            animation: showreel 12.5s cubic-bezier(0.6, 1.24, 0.76, 1.07) infinite;
+        }
+
+
+        .ul_data {
+            margin-left: 20px;
+            margin-top: 20px;
+            float: left;
+        }
+
+        .ul_titles {
+            width: 130px;
+            height: 170px;
+            margin-top: 20px;
+            margin-left: 30px;
+            float: left;
+        }
+
+        .quickview {
+            display: grid;
+            grid-auto-flow: column;
+            grid-gap: 60px;
+        }
+
+        .quickview__item {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .quickview__item-total {
+            margin-bottom: 2px;
+            font-size: 32px;
+        }
+
+        .quickview__item-description {
+            font-size: 16px;
+            text-align: center;
+        }
+
+        .main-overview {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(265px, 1fr));
+            grid-auto-rows: 94px;
+            grid-gap: 30px;
+        }
+
+        .overviewCard {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px;
+            border-top: 2px solid #37474F;
+            background-color: #fff;
+            transform: translateY(0);
+            transition: all 0.3s;
+        }
+
+        .overviewCard-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 60px;
+            width: 60px;
+            border-radius: 50%;
+            font-size: 21px;
+            color: #fff;
+        }
+
+        .overviewCard-icon--document {
+            background-color: #e67e22;
+        }
+
+        .overviewCard-icon--calendar {
+            background-color: #27ae60;
+        }
+
+        .overviewCard-icon--mail {
+            background-color: #e74c3c;
+        }
+
+        .overviewCard-icon--photo {
+            background-color: #af64cc;
+        }
+
+        .overviewCard-description {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .overviewCard-title {
+            font-size: 18px;
+            color: #1bbae1;
+            margin: 0;
+        }
+
+        .overviewCard-subtitle {
+            margin: 2px;
+            color: #777;
+        }
+
+        .overviewCard:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 5px rgba(0, 0, 0, .1);
+            cursor: pointer;
+        }
+
+        .card {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            background-color: #fff;
+            margin-bottom: 20px;
+            -webkit-column-break-inside: avoid;
+        }
+
+        .card__header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 50px;
+            background-color: #394263;
+            color: #fff;
+        }
+
+        .card__header-title {
+            margin: 0 20px;
+            font-size: 20px;
+            letter-spacing: 1.2px;
+        }
+
+        .card__header-link {
+            font-size: 16px;
+            color: #1bbae1;
+            letter-spacing: normal;
+            display: inline-block;
+        }
+
+        .card__main {
+            position: relative;
+            padding-right: 20px;
+            background-color: #fff;
+        }
+
+        .card__main:after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 120px;
+            bottom: 0;
+            width: 2px;
+            background-color: #f0f0f0;
+        }
+
+        .card__secondary {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            grid-auto-rows: 100px;
+            grid-gap: 25px;
+            padding: 20px;
+            background-color: #fff;
+        }
+
+        .card__photo {
+            background-image: url('../../img/pumpkin-carving.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-color: slategray;
+            transform: scale(1);
+            transition: transform 0.3s ease-in-out;
+            width: 100%;
+            height: 100%;
+        }
+
+        .card__photo:hover {
+            transform: scale(1.1);
+            cursor: pointer;
+        }
+
+        .card__photo-wrapper {
+            overflow: hidden;
+        }
+
+        .card__row {
+            position: relative;
+            display: flex;
+            flex: 1;
+            margin: 15px 0 20px;
+        }
+
+        .card__icon {
+            position: absolute;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            content: "";
+            width: 30px;
+            height: 30px;
+            top: 0;
+            left: 121px;
+            transform: translateX(-50%);
+            border-radius: 50%;
+            color: #fff;
+            background-color: #1bbae1;
+            z-index: 1;
+        }
+
+        .card__row:nth-child(even) .card__icon {
+            background-color: #e74c3c;
+        }
+
+        .card__time {
+            display: flex;
+            flex: 1;
+            justify-content: flex-end;
+            max-width: 80px;
+            margin-left: 15px;
+            text-align: right;
+            font-size: 14px;
+            line-height: 2;
+        }
+
+        .card__detail {
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+            padding-left: 12px;
+            margin-left: 48px;
+            transform: translateX(0);
+            transition: all 0.3s;
+        }
+
+        .card__detail:hover {
+            background-color: #f0f0f0;
+            transform: translateX(4px);
+            cursor: pointer;
+        }
+
+        .card__source {
+            line-height: 1.8;
+            color: #1bbae1;
+        }
+
+        .card__note {
+            margin: 10px 0;
+            color: #777;
+        }
+
+        .card--finance {
+            position: relative;
+        }
+
+        .settings {
+            display: flex;
+            margin: 8px;
+            align-self: flex-start;
+            background-color: rgba(255, 255, 255, .5);
+            border: 1px solid rgba(0, 0, 0, .1);
+            border-radius: 2px;
+        }
+
+        .settings__block {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 4px;
+            color: #394263;
+            font-size: 11px;
+        }
+
+        .settings__block:not(:last-child) {
+            border-right: 1px solid rgba(0, 0, 0, .1);
+        }
+
+        .settings__icon {
+            padding: 0px 3px;
+            font-size: 12px;
+        }
+
+        .settings__icon:hover {
+            background-color: rgba(255, 255, 255, .8);
+            cursor: pointer;
+        }
+
+        .settings:hover {
+            background-color: #fff;
+            cursor: pointer;
+        }
+
+        .documents {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(105px, 1fr));
+            grid-auto-rows: 214px;
+            grid-gap: 12px;
+            height: auto;
+            background-color: #fff;
+        }
+
+        .document {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 15px 0 0;
+            flex-direction: column;
+        }
+
+        .document__img {
+            width: 105px;
+            height: 136px;
+            background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/1609106/doc-1.png");
+            background-size: cover;
+            box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .document__img:hover {
+            transform: translateY(-4px);
+        }
+
+        .document__title {
+            margin: 8px 0 2px;
+            color: #777;
+        }
+
+        .document__date {
+            font-size: 10px;
+        }
+
+        @media only screen and (min-width: 46.875em) {
+            .grid {
+                display: grid;
+                grid-template-columns: 240px calc(100% - 240px);
+                grid-template-rows: 50px 1fr 50px;
+                grid-template-areas: 'sidenav header''sidenav main''sidenav footer';
+                height: 100vh;
+            }
+
+            .sidenav {
+                position: relative;
+                transform: translateX(0);
+            }
+
+            .sidenav__brand-close {
+                visibility: hidden;
+            }
+
+            .main-header__intro-wrapper {
+                padding: 0 30px;
+            }
+
+            .header__menu {
+                display: none;
+            }
+
+            .header__search {
+                margin-left: 20px;
+            }
+
+            .header__avatar {
+                width: 40px;
+                height: 40px;
+            }
+        }
+
+        @media only screen and (min-width: 65.625em) {
+            .main__cards {
+                column-count: 2;
+            }
+
+            .main-header__intro-wrapper {
+                flex-direction: row;
+            }
+
+            .main-header__welcome {
+                align-items: flex-start;
+            }
+        }
+    </style>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Digital Student Workspace</title>
+
+    <!-- Global stylesheets -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet"
+        type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Cairo&display=swap" rel="stylesheet">
+    <link href="assets/css/icons/icomoon/styles.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/core.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/components.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/colors.css" rel="stylesheet" type="text/css">
+    <!-- /global stylesheets -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
+        integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <!-- Core JS files -->
+    <script type="text/javascript" src="assets/js/plugins/loaders/pace.min.js"></script>
+    <script type="text/javascript" src="assets/js/core/libraries/jquery.min.js"></script>
+    <script type="text/javascript" src="assets/js/core/libraries/bootstrap.min.js"></script>
+    <script type="text/javascript" src="assets/js/plugins/loaders/blockui.min.js"></script>
+    <script type="text/javascript" src="assets/js/plugins/ui/nicescroll.min.js"></script>
+    <script type="text/javascript" src="assets/js/plugins/ui/drilldown.js"></script>
+    <script type="text/javascript" src="assets/js/plugins/ui/fab.min.js"></script>
+    <!-- /core JS files -->
+
+    <!-- Theme JS files -->
+    <script type="text/javascript" src="assets/js/plugins/tables/datatables/datatables.min.js"></script>
+    <script type="text/javascript" src="assets/js/plugins/forms/wizards/steps.min.js"></script>
+    <script type="text/javascript" src="assets/js/plugins/forms/selects/select2.min.js"></script>
+    <script type="text/javascript" src="assets/js/plugins/forms/styling/uniform.min.js"></script>
+    <script type="text/javascript" src="assets/js/core/libraries/jasny_bootstrap.min.js"></script>
+    <script type="text/javascript" src="assets/js/plugins/forms/validation/validate.min.js"></script>
+    <script type="text/javascript" src="assets/js/plugins/extensions/cookie.js"></script>
+
+    <script type="text/javascript" src="assets/js/core/app.js"></script>
+    <!-- <script type="text/javascript" src="assets/js/pages/wizard_steps.js"></script> -->
+    <script type="text/javascript" src="assets/js/pages/datatables_advanced.js"></script>
+    <!-- /theme JS files -->
+
+</head>
+
+<body>
+    <!-- Main navbar -->
+    <div class="navbar navbar-inverse">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="index.html">
+                <!-- <img src="assets/images/logo_light.png" alt=""> -->
+                <i class="icon-shutter mr-5"></i>
+                <strong style="font-size: 16px;">المنصة الإلكترونية لخدمات الجامعة</strong>
+            </a>
+
+            <ul class="nav navbar-nav pull-right visible-xs-block">
+                <li><a data-toggle="collapse" data-target="#navbar-mobile"><i class="icon-tree5"></i></a></li>
+            </ul>
+        </div>
+
+        <div class="navbar-collapse collapse" id="navbar-mobile">
+            <ul class="nav navbar-nav">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <i class="icon-git-compare"></i>
+                        <span class="visible-xs-inline-block position-right">Git updates</span>
+                        <span class="badge bg-warning-400">9</span>
+                    </a>
+
+                    <div class="dropdown-menu dropdown-content">
+                        <div class="dropdown-content-heading">
+                            Git updates
+                            <ul class="icons-list">
+                                <li><a href="#"><i class="icon-sync"></i></a></li>
+                            </ul>
+                        </div>
+
+                        <ul class="media-list dropdown-content-body width-350">
+                            <li class="media">
+                                <div class="media-left">
+                                    <a href="#"
+                                        class="btn border-primary text-primary btn-flat btn-rounded btn-icon btn-sm"><i
+                                            class="icon-git-pull-request"></i></a>
+                                </div>
+
+                                <div class="media-body">
+                                    Drop the IE <a href="#">specific hacks</a> for temporal inputs
+                                    <div class="media-annotation">4 minutes ago</div>
+                                </div>
+                            </li>
+
+                            <li class="media">
+                                <div class="media-left">
+                                    <a href="#"
+                                        class="btn border-warning text-warning btn-flat btn-rounded btn-icon btn-sm"><i
+                                            class="icon-git-commit"></i></a>
+                                </div>
+
+                                <div class="media-body">
+                                    Add full font overrides for popovers and tooltips
+                                    <div class="media-annotation">36 minutes ago</div>
+                                </div>
+                            </li>
+
+                            <li class="media">
+                                <div class="media-left">
+                                    <a href="#"
+                                        class="btn border-info text-info btn-flat btn-rounded btn-icon btn-sm"><i
+                                            class="icon-git-branch"></i></a>
+                                </div>
+
+                                <div class="media-body">
+                                    <a href="#">Chris Arney</a> created a new <span class="text-semibold">Design</span>
+                                    branch
+                                    <div class="media-annotation">2 hours ago</div>
+                                </div>
+                            </li>
+
+                            <li class="media">
+                                <div class="media-left">
+                                    <a href="#"
+                                        class="btn border-success text-success btn-flat btn-rounded btn-icon btn-sm"><i
+                                            class="icon-git-merge"></i></a>
+                                </div>
+
+                                <div class="media-body">
+                                    <a href="#">Eugene Kopyov</a> merged <span class="text-semibold">Master</span> and
+                                    <span class="text-semibold">Dev</span> branches
+                                    <div class="media-annotation">Dec 18, 18:36</div>
+                                </div>
+                            </li>
+
+                            <li class="media">
+                                <div class="media-left">
+                                    <a href="#"
+                                        class="btn border-primary text-primary btn-flat btn-rounded btn-icon btn-sm"><i
+                                            class="icon-git-pull-request"></i></a>
+                                </div>
+
+                                <div class="media-body">
+                                    Have Carousel ignore keyboard events
+                                    <div class="media-annotation">Dec 12, 05:46</div>
+                                </div>
+                            </li>
+                        </ul>
+
+                        <div class="dropdown-content-footer">
+                            <a href="#" data-popup="tooltip" title="All activity"><i
+                                    class="icon-menu display-block"></i></a>
+                        </div>
+                    </div>
+                </li>
+
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <i class="icon-people"></i>
+                        <span class="visible-xs-inline-block position-right">Users</span>
+                    </a>
+
+                    <div class="dropdown-menu dropdown-content">
+                        <div class="dropdown-content-heading">
+                            Users online
+                            <ul class="icons-list">
+                                <li><a href="#"><i class="icon-gear"></i></a></li>
+                            </ul>
+                        </div>
+
+                        <ul class="media-list dropdown-content-body width-300">
+                            <li class="media">
+                                <div class="media-left"><img src="assets/images/placeholder.jpg"
+                                        class="img-circle img-sm" alt=""></div>
+                                <div class="media-body">
+                                    <a href="#" class="media-heading text-semibold">Jordana Ansley</a>
+                                    <span class="display-block text-muted text-size-small">Lead web developer</span>
+                                </div>
+                                <div class="media-right media-middle"><span class="status-mark border-success"></span>
+                                </div>
+                            </li>
+
+                            <li class="media">
+                                <div class="media-left"><img src="assets/images/placeholder.jpg"
+                                        class="img-circle img-sm" alt=""></div>
+                                <div class="media-body">
+                                    <a href="#" class="media-heading text-semibold">Will Brason</a>
+                                    <span class="display-block text-muted text-size-small">Marketing manager</span>
+                                </div>
+                                <div class="media-right media-middle"><span class="status-mark border-danger"></span>
+                                </div>
+                            </li>
+
+                            <li class="media">
+                                <div class="media-left"><img src="assets/images/placeholder.jpg"
+                                        class="img-circle img-sm" alt=""></div>
+                                <div class="media-body">
+                                    <a href="#" class="media-heading text-semibold">Hanna Walden</a>
+                                    <span class="display-block text-muted text-size-small">Project manager</span>
+                                </div>
+                                <div class="media-right media-middle"><span class="status-mark border-success"></span>
+                                </div>
+                            </li>
+
+                            <li class="media">
+                                <div class="media-left"><img src="assets/images/placeholder.jpg"
+                                        class="img-circle img-sm" alt=""></div>
+                                <div class="media-body">
+                                    <a href="#" class="media-heading text-semibold">Dori Laperriere</a>
+                                    <span class="display-block text-muted text-size-small">Business developer</span>
+                                </div>
+                                <div class="media-right media-middle"><span
+                                        class="status-mark border-warning-300"></span></div>
+                            </li>
+
+                            <li class="media">
+                                <div class="media-left"><img src="assets/images/placeholder.jpg"
+                                        class="img-circle img-sm" alt=""></div>
+                                <div class="media-body">
+                                    <a href="#" class="media-heading text-semibold">Vanessa Aurelius</a>
+                                    <span class="display-block text-muted text-size-small">UX expert</span>
+                                </div>
+                                <div class="media-right media-middle"><span class="status-mark border-grey-400"></span>
+                                </div>
+                            </li>
+                        </ul>
+
+                        <div class="dropdown-content-footer">
+                            <a href="#" data-popup="tooltip" title="All users"><i
+                                    class="icon-menu display-block"></i></a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+
+            <p class="navbar-text"><span class="label bg-success-400">متصل</span></p>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown language-switch">
+                    <a class="dropdown-toggle" data-toggle="dropdown">
+                        <img src="assets/images/flags/lb.png" class="position-left" alt="">
+                        عربي
+                        <span class="caret"></span>
+                    </a>
+
+                    <ul class="dropdown-menu">
+                        <li><a class="deutsch"><img src="assets/images/flags/de.png" alt=""> Deutsch</a></li>
+                        <li><a class="ukrainian"><img src="assets/images/flags/ua.png" alt=""> Українська</a></li>
+                        <li><a class="english"><img src="assets/images/flags/gb.png" alt=""> English</a></li>
+                        <li><a class="espana"><img src="assets/images/flags/es.png" alt=""> España</a></li>
+                        <li><a class="russian"><img src="assets/images/flags/ru.png" alt=""> Русский</a></li>
+                    </ul>
+                </li>
+
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <i class="icon-bubbles4"></i>
+                        <span class="visible-xs-inline-block position-right">Messages</span>
+                        <span class="badge bg-warning-400">2</span>
+                    </a>
+
+                    <div class="dropdown-menu dropdown-content width-350">
+                        <div class="dropdown-content-heading">
+                            Messages
+                            <ul class="icons-list">
+                                <li><a href="#"><i class="icon-compose"></i></a></li>
+                            </ul>
+                        </div>
+
+                        <ul class="media-list dropdown-content-body">
+                            <li class="media">
+                                <div class="media-left">
+                                    <img src="assets/images/placeholder.jpg" class="img-circle img-sm" alt="">
+                                    <span class="badge bg-danger-400 media-badge">5</span>
+                                </div>
+
+                                <div class="media-body">
+                                    <a href="#" class="media-heading">
+                                        <span class="text-semibold">James Alexander</span>
+                                        <span class="media-annotation pull-right">04:58</span>
+                                    </a>
+
+                                    <span class="text-muted">who knows, maybe that would be the best thing for
+                                        me...</span>
+                                </div>
+                            </li>
+
+                            <li class="media">
+                                <div class="media-left">
+                                    <img src="assets/images/placeholder.jpg" class="img-circle img-sm" alt="">
+                                    <span class="badge bg-danger-400 media-badge">4</span>
+                                </div>
+
+                                <div class="media-body">
+                                    <a href="#" class="media-heading">
+                                        <span class="text-semibold">Margo Baker</span>
+                                        <span class="media-annotation pull-right">12:16</span>
+                                    </a>
+
+                                    <span class="text-muted">That was something he was unable to do because...</span>
+                                </div>
+                            </li>
+
+                            <li class="media">
+                                <div class="media-left"><img src="assets/images/placeholder.jpg"
+                                        class="img-circle img-sm" alt=""></div>
+                                <div class="media-body">
+                                    <a href="#" class="media-heading">
+                                        <span class="text-semibold">Jeremy Victorino</span>
+                                        <span class="media-annotation pull-right">22:48</span>
+                                    </a>
+
+                                    <span class="text-muted">But that would be extremely strained and
+                                        suspicious...</span>
+                                </div>
+                            </li>
+
+                            <li class="media">
+                                <div class="media-left"><img src="assets/images/placeholder.jpg"
+                                        class="img-circle img-sm" alt=""></div>
+                                <div class="media-body">
+                                    <a href="#" class="media-heading">
+                                        <span class="text-semibold">Beatrix Diaz</span>
+                                        <span class="media-annotation pull-right">Tue</span>
+                                    </a>
+
+                                    <span class="text-muted">What a strenuous career it is that I've chosen...</span>
+                                </div>
+                            </li>
+
+                            <li class="media">
+                                <div class="media-left"><img src="assets/images/placeholder.jpg"
+                                        class="img-circle img-sm" alt=""></div>
+                                <div class="media-body">
+                                    <a href="#" class="media-heading">
+                                        <span class="text-semibold">Richard Vango</span>
+                                        <span class="media-annotation pull-right">Mon</span>
+                                    </a>
+
+                                    <span class="text-muted">Other travelling salesmen live a life of luxury...</span>
+                                </div>
+                            </li>
+                        </ul>
+
+                        <div class="dropdown-content-footer">
+                            <a href="#" data-popup="tooltip" title="All messages"><i
+                                    class="icon-menu display-block"></i></a>
+                        </div>
+                    </div>
+                </li>
+
+                <li class="dropdown dropdown-user">
+                    <a class="dropdown-toggle" data-toggle="dropdown">
+                        <img src="assets/images/mazen.png" alt="">
+                        <span>مازن فرح</span>
+                        <i class="caret"></i>
+                    </a>
+
+                    <ul class="dropdown-menu dropdown-menu-right">
+                        <li><a href="#"><i class="icon-user-plus"></i> My profile</a></li>
+                        <li><a href="#"><i class="icon-coins"></i> My balance</a></li>
+                        <li><a href="#"><span class="badge badge-warning pull-right">58</span> <i
+                                    class="icon-comment-discussion"></i> Messages</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#"><i class="icon-cog5"></i> Account settings</a></li>
+                        <li><a href="#"><i class="icon-switch2"></i> Logout</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- /main navbar -->
+
+
+    <!-- Second navbar -->
+    <div class="navbar navbar-default" id="navbar-second">
+        <ul class="nav navbar-nav no-border visible-xs-block">
+            <li><a class="text-center collapsed" data-toggle="collapse" data-target="#navbar-second-toggle"><i
+                        class="icon-menu7"></i></a></li>
+        </ul>
+
+        <div class="navbar-collapse collapse" id="navbar-second-toggle">
+            <ul class="nav navbar-nav">
+                <li><a href="Employee_1.html"><i class="icon-display4 position-left"></i> الصفحة الرئيسية</a></li>
+                <li><a href="#"><i class="icon-display4 position-left"></i>الطلبات</a></li>
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                <!-- <li>
+					<a href="changelog.html">
+						<i class="icon-history position-left"></i>
+						Changelog
+						<span class="label label-inline position-right bg-success-400">1.6</span>
+					</a>
+				</li> -->
+
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <i class="icon-cog3"></i>
+                        <span class="visible-xs-inline-block position-right">Share</span>
+                        <span class="caret"></span>
+                    </a>
+
+                    <ul class="dropdown-menu dropdown-menu-right">
+                        <li><a href="#"><i class="icon-user-lock"></i>أمن الحساب</a></li>
+                        <li><a href="#"><i class="icon-statistics"></i> تحليلات</a></li>
+                        <li><a href="#"><i class="icon-accessibility"></i> إمكانية الوصول</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#"><i class="icon-gear"></i> جميع الإعدادات</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- /second navbar -->
+
+
+    <!-- Page header -->
+    <div class="page-header">
+        <div class="page-header-content">
+            <div class="page-title">
+                <h4><i class="icon-arrow-right6 position-left"></i> <span class="text-semibold">الصفحة الرئيسية</span>
+                </h4>
+
+                <ul class="breadcrumb breadcrumb-caret position-right">
+                    <li>الصفحة الرئيسية</li>
+                    <li>التحقق من الطلب</li>
+                </ul>
+            </div>
+
+            <!-- <div class="heading-elements">
+				<div class="heading-btn-group">
+					<a href="#" class="btn btn-link btn-float has-text"><i class="icon-bars-alt text-primary"></i><span>Statistics</span></a>
+					<a href="#" class="btn btn-link btn-float has-text"><i class="icon-calculator text-primary"></i> <span>Invoices</span></a>
+					<a href="#" class="btn btn-link btn-float has-text"><i class="icon-calendar5 text-primary"></i> <span>Schedule</span></a>
+				</div>
+			</div> -->
+        </div>
+    </div>
+    <!-- /page header -->
+
+    <!-- Page container -->
+    <div class="page-container">
+
+        <!-- Page content -->
+        <div class="page-content">
+
+            <!-- Starting step -->
+            <div class="panel panel-white">
+                <div class="panel-heading">
+                    <h6 class="panel-title">التحقق من الطلب</h6>
+                    <div class="heading-elements">
+                        <ul class="icons-list">
+                            <li><a data-action="collapse"></a></li>
+                            <li><a data-action="reload"></a></li>
+                            <li><a data-action="close"></a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <form class="steps-starting-step">
+                    <h6>التحقق من صحة الملفات</h6>
+                    <fieldset>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div id="data_show">
+
+
+                                    <div id="photo_id" style="cursor: pointer;display: none;"><img
+                                            src="./assets/images/validate.png" id="imgClickAndChange"
+                                            onclick="changeImage()" /></div>
+                                    <div id="data-button">
+                                        <a id="imgClickAndChange" onclick="changeImage()" class="button-3d mt-10">التحقق
+                                            من صحة الملفات</a>
+                                    </div>
+                                    <?xml version="1.0" encoding="UTF-8"?>
+                                    <svg width="100%" id="svg" height="268px" style="display: none;"
+                                        viewBox="0 0 1827 268" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                                        xmlns:xlink="http://www.w3.org/1999/xlink">
+
+                                        <title>Artboard</title>
+                                        <desc>Created with Sketch.</desc>
+                                        <defs>
+                                            <rect id="path-1" x="0" y="0" width="235" height="156" rx="8"></rect>
+                                            <filter x="-32.6%" y="-39.4%" width="165.1%" height="198.1%"
+                                                filterUnits="objectBoundingBox" id="filter-2">
+                                                <feOffset dx="0" dy="15" in="SourceAlpha" result="shadowOffsetOuter1">
+                                                </feOffset>
+                                                <feGaussianBlur stdDeviation="23" in="shadowOffsetOuter1"
+                                                    result="shadowBlurOuter1"></feGaussianBlur>
+                                                <feColorMatrix
+                                                    values="0 0 0 0 0.298039   0 0 0 0 0.360784   0 0 0 0 0.439216  0 0 0 0.13 0"
+                                                    type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+                                            </filter>
+                                            <rect id="path-3" x="0" y="0" width="215" height="85" rx="5"></rect>
+                                            <rect id="path-5" x="0" y="0" width="235" height="156" rx="8"></rect>
+                                            <filter x="-32.6%" y="-39.4%" width="165.1%" height="198.1%"
+                                                filterUnits="objectBoundingBox" id="filter-6">
+                                                <feOffset dx="0" dy="15" in="SourceAlpha" result="shadowOffsetOuter1">
+                                                </feOffset>
+                                                <feGaussianBlur stdDeviation="23" in="shadowOffsetOuter1"
+                                                    result="shadowBlurOuter1"></feGaussianBlur>
+                                                <feColorMatrix
+                                                    values="0 0 0 0 0.298039   0 0 0 0 0.360784   0 0 0 0 0.439216  0 0 0 0.13 0"
+                                                    type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+                                            </filter>
+                                            <rect id="path-7" x="0" y="0" width="215" height="85" rx="5"></rect>
+                                            <rect id="path-9" x="0" y="0" width="235" height="156" rx="8"></rect>
+                                            <filter x="-32.6%" y="-39.4%" width="165.1%" height="198.1%"
+                                                filterUnits="objectBoundingBox" id="filter-11">
+                                                <feOffset dx="0" dy="15" in="SourceAlpha" result="shadowOffsetOuter1">
+                                                </feOffset>
+                                                <feGaussianBlur stdDeviation="23" in="shadowOffsetOuter1"
+                                                    result="shadowBlurOuter1"></feGaussianBlur>
+                                                <feColorMatrix
+                                                    values="0 0 0 0 0.298039   0 0 0 0 0.360784   0 0 0 0 0.439216  0 0 0 0.13 0"
+                                                    type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+                                            </filter>
+                                            <rect id="path-12" x="0" y="0" width="235" height="156" rx="8"></rect>
+                                            <filter x="-32.6%" y="-39.4%" width="165.1%" height="198.1%"
+                                                filterUnits="objectBoundingBox" id="filter-13">
+                                                <feOffset dx="0" dy="15" in="SourceAlpha" result="shadowOffsetOuter1">
+                                                </feOffset>
+                                                <feGaussianBlur stdDeviation="23" in="shadowOffsetOuter1"
+                                                    result="shadowBlurOuter1"></feGaussianBlur>
+                                                <feColorMatrix
+                                                    values="0 0 0 0 0.298039   0 0 0 0 0.360784   0 0 0 0 0.439216  0 0 0 0.13 0"
+                                                    type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+                                            </filter>
+                                            <rect id="path-14" x="0" y="0" width="87" height="136" rx="5"></rect>
+                                            <rect id="path-16" x="0" y="0" width="235" height="156" rx="8"></rect>
+                                            <filter x="-32.6%" y="-39.4%" width="165.1%" height="198.1%"
+                                                filterUnits="objectBoundingBox" id="filter-17">
+                                                <feOffset dx="0" dy="15" in="SourceAlpha" result="shadowOffsetOuter1">
+                                                </feOffset>
+                                                <feGaussianBlur stdDeviation="23" in="shadowOffsetOuter1"
+                                                    result="shadowBlurOuter1"></feGaussianBlur>
+                                                <feColorMatrix
+                                                    values="0 0 0 0 0.298039   0 0 0 0 0.360784   0 0 0 0 0.439216  0 0 0 0.13 0"
+                                                    type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+                                            </filter>
+                                            <rect id="path-18" x="0" y="0" width="235" height="156" rx="8"></rect>
+                                            <filter x="-32.6%" y="-39.4%" width="165.1%" height="198.1%"
+                                                filterUnits="objectBoundingBox" id="filter-19">
+                                                <feOffset dx="0" dy="15" in="SourceAlpha" result="shadowOffsetOuter1">
+                                                </feOffset>
+                                                <feGaussianBlur stdDeviation="23" in="shadowOffsetOuter1"
+                                                    result="shadowBlurOuter1"></feGaussianBlur>
+                                                <feColorMatrix
+                                                    values="0 0 0 0 0.298039   0 0 0 0 0.360784   0 0 0 0 0.439216  0 0 0 0.13 0"
+                                                    type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+                                            </filter>
+                                            <rect id="path-20" x="0" y="0" width="275" height="5"></rect>
+                                            <filter x="-6.9%" y="-340.0%" width="113.8%" height="860.0%"
+                                                filterUnits="objectBoundingBox" id="filter-21">
+                                                <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1">
+                                                </feOffset>
+                                                <feGaussianBlur stdDeviation="6" in="shadowOffsetOuter1"
+                                                    result="shadowBlurOuter1"></feGaussianBlur>
+                                                <feColorMatrix
+                                                    values="0 0 0 0 0   0 0 0 0 1   0 0 0 0 0.764705882  0 0 0 1 0"
+                                                    type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+                                            </filter>
+                                            <linearGradient x1="50%" y1="100%" x2="50%" y2="2.07669005%"
+                                                id="linearGradient-22">
+                                                <stop stop-color="#00FFE3" stop-opacity="0" offset="0%"></stop>
+                                                <stop stop-color="#00FFC3" stop-opacity="0.15" offset="100%"></stop>
+                                            </linearGradient>
+                                        </defs>
+                                        <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                            <g id="Cards">
+                                                <g id="Data-Uses/Market-Data"
+                                                    transform="translate(363.000000, 47.000000)">
+                                                    <g id="Data-Uses/Product-Pricing" stroke-width="1">
+                                                        <g id="Rectangle-4">
+                                                            <use fill="black" fill-opacity="1" filter="url(#filter-2)"
+                                                                xlink:href="#path-1"></use>
+                                                            <use fill="#FFFFFF" fill-rule="evenodd"
+                                                                xlink:href="#path-1"></use>
+                                                        </g>
+                                                        <g id="Path-6" transform="translate(10.000000, 10.000000)">
+                                                            <mask id="mask-4" fill="white">
+                                                                <use xlink:href="#path-3"></use>
+                                                            </mask>
+                                                            <use id="Mask" fill="#F6F7FC" xlink:href="#path-3"></use>
+                                                            <path
+                                                                d="M-1.26250821,85.6438348 C45.9460019,80.1201558 72.5712503,70.2283568 78.613237,55.968438 C87.6762172,34.5785598 100.99751,9.92076465 117.050582,20.2265147 C133.103654,30.5322647 127.892355,55.968438 149.360484,55.968438 C170.828613,55.968438 184.567484,16.2179624 215.837886,20.2265147"
+                                                                stroke="#D2DEE8" stroke-width="3" mask="url(#mask-4)">
+                                                            </path>
+                                                        </g>
+                                                        <g id="Group" transform="translate(10.000000, 129.000000)"
+                                                            fill="#E0E6ED">
+                                                            <rect id="Rectangle-5" x="0" y="0" width="66" height="3">
+                                                            </rect>
+                                                            <rect id="Rectangle-5-Copy" x="0" y="7" width="45"
+                                                                height="3"></rect>
+                                                            <rect id="Rectangle-5-Copy-2" x="0" y="14" width="27"
+                                                                height="3"></rect>
+                                                        </g>
+                                                        <g id="Group-Copy" transform="translate(84.000000, 129.000000)"
+                                                            fill="#E0E6ED">
+                                                            <rect id="Rectangle-5" x="0" y="0" width="66" height="3">
+                                                            </rect>
+                                                            <rect id="Rectangle-5-Copy" x="0" y="7" width="45"
+                                                                height="3"></rect>
+                                                            <rect id="Rectangle-5-Copy-2" x="0" y="14" width="27"
+                                                                height="3"></rect>
+                                                        </g>
+                                                        <g id="Group-Copy-2"
+                                                            transform="translate(159.000000, 129.000000)"
+                                                            fill="#E0E6ED">
+                                                            <rect id="Rectangle-5" x="0" y="0" width="66" height="3">
+                                                            </rect>
+                                                            <rect id="Rectangle-5-Copy" x="0" y="7" width="45"
+                                                                height="3"></rect>
+                                                            <rect id="Rectangle-5-Copy-2" x="0" y="14" width="27"
+                                                                height="3"></rect>
+                                                        </g>
+                                                    </g>
+                                                    <rect id="Rectangle-8" fill="#F6F7FC" x="9" y="102" width="67"
+                                                        height="21" rx="3"></rect>
+                                                    <rect id="Rectangle-8-Copy" fill="#F6F7FC" x="84" y="102" width="67"
+                                                        height="21" rx="3"></rect>
+                                                    <rect id="Rectangle-8-Copy-2" fill="#F6F7FC" x="159" y="102"
+                                                        width="67" height="21" rx="3"></rect>
+                                                    <rect id="Rectangle-10" fill="#5AB9B2" x="20" y="111" width="45"
+                                                        height="4"></rect>
+                                                    <rect id="Rectangle-10-Copy" fill="#F592B7" x="95" y="111"
+                                                        width="45" height="4"></rect>
+                                                    <rect id="Rectangle-10-Copy-2" fill="#FDA99E" x="170" y="111"
+                                                        width="45" height="4"></rect>
+                                                </g>
+                                                <g id="Data-Uses/Market-Data"
+                                                    transform="translate(1511.000000, 47.000000)">
+                                                    <g id="Data-Uses/Product-Pricing" stroke-width="1">
+                                                        <g id="Rectangle-4">
+                                                            <use fill="black" fill-opacity="1" filter="url(#filter-6)"
+                                                                xlink:href="#path-5"></use>
+                                                            <use fill="#FFFFFF" fill-rule="evenodd"
+                                                                xlink:href="#path-5"></use>
+                                                        </g>
+                                                        <g id="Path-6" transform="translate(10.000000, 10.000000)">
+                                                            <mask id="mask-8" fill="white">
+                                                                <use xlink:href="#path-7"></use>
+                                                            </mask>
+                                                            <use id="Mask" fill="#F6F7FC" xlink:href="#path-7"></use>
+                                                            <path
+                                                                d="M-1.26250821,85.6438348 C45.9460019,80.1201558 72.5712503,70.2283568 78.613237,55.968438 C87.6762172,34.5785598 100.99751,9.92076465 117.050582,20.2265147 C133.103654,30.5322647 127.892355,55.968438 149.360484,55.968438 C170.828613,55.968438 184.567484,16.2179624 215.837886,20.2265147"
+                                                                stroke="#D2DEE8" stroke-width="3" mask="url(#mask-8)">
+                                                            </path>
+                                                        </g>
+                                                        <g id="Group" transform="translate(10.000000, 129.000000)"
+                                                            fill="#E0E6ED">
+                                                            <rect id="Rectangle-5" x="0" y="0" width="66" height="3">
+                                                            </rect>
+                                                            <rect id="Rectangle-5-Copy" x="0" y="7" width="45"
+                                                                height="3"></rect>
+                                                            <rect id="Rectangle-5-Copy-2" x="0" y="14" width="27"
+                                                                height="3"></rect>
+                                                        </g>
+                                                        <g id="Group-Copy" transform="translate(84.000000, 129.000000)"
+                                                            fill="#E0E6ED">
+                                                            <rect id="Rectangle-5" x="0" y="0" width="66" height="3">
+                                                            </rect>
+                                                            <rect id="Rectangle-5-Copy" x="0" y="7" width="45"
+                                                                height="3"></rect>
+                                                            <rect id="Rectangle-5-Copy-2" x="0" y="14" width="27"
+                                                                height="3"></rect>
+                                                        </g>
+                                                        <g id="Group-Copy-2"
+                                                            transform="translate(159.000000, 129.000000)"
+                                                            fill="#E0E6ED">
+                                                            <rect id="Rectangle-5" x="0" y="0" width="66" height="3">
+                                                            </rect>
+                                                            <rect id="Rectangle-5-Copy" x="0" y="7" width="45"
+                                                                height="3"></rect>
+                                                            <rect id="Rectangle-5-Copy-2" x="0" y="14" width="27"
+                                                                height="3"></rect>
+                                                        </g>
+                                                    </g>
+                                                    <rect id="Rectangle-8" fill="#F6F7FC" x="9" y="102" width="67"
+                                                        height="21" rx="3"></rect>
+                                                    <rect id="Rectangle-8-Copy" fill="#F6F7FC" x="84" y="102" width="67"
+                                                        height="21" rx="3"></rect>
+                                                    <rect id="Rectangle-8-Copy-2" fill="#F6F7FC" x="159" y="102"
+                                                        width="67" height="21" rx="3"></rect>
+                                                    <rect id="Rectangle-10" fill="#5AB9B2" x="20" y="111" width="45"
+                                                        height="4"></rect>
+                                                    <rect id="Rectangle-10-Copy" fill="#F592B7" x="95" y="111"
+                                                        width="45" height="4"></rect>
+                                                    <rect id="Rectangle-10-Copy-2" fill="#FDA99E" x="170" y="111"
+                                                        width="45" height="4"></rect>
+                                                </g>
+                                                <g id="Data-Uses/Product-Data"
+                                                    transform="translate(650.000000, 47.000000)">
+                                                    <g id="Rectangle-Copy-3" stroke-width="1" fill-rule="evenodd">
+                                                        <mask id="mask-10" fill="white">
+                                                            <use xlink:href="#path-9"></use>
+                                                        </mask>
+                                                        <g id="Mask">
+                                                            <use fill="black" fill-opacity="1" filter="url(#filter-11)"
+                                                                xlink:href="#path-9"></use>
+                                                            <use fill="#FFFFFF" fill-rule="evenodd"
+                                                                xlink:href="#path-9"></use>
+                                                        </g>
+                                                        <rect fill="#F6F7FC" mask="url(#mask-10)" x="216" y="96"
+                                                            width="29" height="50" rx="5"></rect>
+                                                    </g>
+                                                    <rect id="Rectangle-3" fill="#F6F7FC" fill-rule="evenodd" x="10"
+                                                        y="10" width="88" height="136" rx="5"></rect>
+                                                    <rect id="Rectangle-5-Copy-19" fill="#AFBCD0" fill-rule="evenodd"
+                                                        x="109" y="16" width="48" height="3"></rect>
+                                                    <rect id="Rectangle-5-Copy-18" fill="#AEBBD0" fill-rule="evenodd"
+                                                        x="109" y="23" width="56" height="3"></rect>
+                                                    <rect id="Rectangle-5-Copy-17" fill="#E0E6ED" fill-rule="evenodd"
+                                                        x="109" y="39" width="30" height="3"></rect>
+                                                    <rect id="Rectangle-5-Copy-16" fill="#E0E6ED" fill-rule="evenodd"
+                                                        x="109" y="46" width="90" height="3"></rect>
+                                                    <rect id="Rectangle-5-Copy-15" fill="#E0E6ED" fill-rule="evenodd"
+                                                        x="109" y="53" width="56" height="3"></rect>
+                                                    <rect id="Rectangle-5-Copy-20" fill="#DFE6ED" fill-rule="evenodd"
+                                                        x="109" y="60" width="88" height="3"></rect>
+                                                    <rect id="Rectangle-5-Copy-21" fill="#DFE6ED" fill-rule="evenodd"
+                                                        x="109" y="67" width="98" height="3"></rect>
+                                                    <rect id="Rectangle-5-Copy-22" fill="#DFE6ED" fill-rule="evenodd"
+                                                        x="109" y="74" width="81" height="3"></rect>
+                                                    <rect id="Rectangle-5-Copy-23" fill="#DFE6ED" fill-rule="evenodd"
+                                                        x="109" y="81" width="56" height="3"></rect>
+                                                    <rect id="Rectangle" fill="#F6F7FC" fill-rule="evenodd" x="109"
+                                                        y="96" width="29" height="50" rx="5"></rect>
+                                                    <rect id="Rectangle-Copy" fill="#F6F7FC" fill-rule="evenodd" x="144"
+                                                        y="96" width="29" height="50" rx="5"></rect>
+                                                    <rect id="Rectangle-Copy-2" fill="#F6F7FC" fill-rule="evenodd"
+                                                        x="180" y="96" width="29" height="50" rx="5"></rect>
+                                                    <path
+                                                        d="M48.2871318,48 L45.2879943,48.7269908 C44.1734278,51.7191599 44.1734278,55.6945574 45.2879943,60.6531833 C45.8269395,64.3403373 46.32197,68.7672463 46.7730857,73.9339104 C42.5740615,83.3592622 41.879822,93.9452083 44.6903674,105.691749 C47.5375887,107.14954 51.0961329,107.389013 55.3659998,106.410166 C58.0294548,105.452276 61.1644868,105.212803 64.7710959,105.691749 C66.2946972,103.767395 67.0712648,80.7551644 62.9938507,73.9339104 C62.2028057,72.5020282 62.7952208,68.0751191 64.7710959,60.6531833 C63.9283184,56.5438564 63.9283184,52.5684589 64.7710959,48.7269908 C64.7641468,48.7155601 63.775051,48.4732299 61.8038087,48 C58.8804861,55.0981338 56.5204541,58.8542863 54.7237127,59.2684577 C54.8511138,59.5045011 57.3505614,63.2245131 57.4681179,63.4691295 C56.4934034,62.8164494 55.6025231,61.868399 54.7237127,61.1153607 C52.1332703,58.8956529 49.9877434,54.523866 48.2871318,48 Z"
+                                                        id="Illustration/Dress" fill="#9BAEC9" fill-rule="evenodd">
+                                                    </path>
+                                                    <path
+                                                        d="M128.758335,122.947904 L124.965421,126.740818 C124.6432,127.063039 124.12056,127.063039 123.798339,126.740818 L119.148751,122.090822 L118,118.534991 L118.839158,117.695833 L120.447002,119.303676 C120.403822,119.613269 120.497514,119.937933 120.735411,120.175831 C121.138289,120.578708 121.791284,120.578708 122.194162,120.175831 C122.597039,119.772953 122.596632,119.119958 122.194162,118.71708 C121.956265,118.479183 121.6316,118.385898 121.322008,118.428671 L119.714164,116.820827 L120.534584,116 L124.108746,117.130419 L128.758335,121.780415 C129.080555,122.103043 129.080555,122.625277 128.758335,122.947904 Z M121.610417,119.592493 C121.52976,119.67315 121.399406,119.67315 121.318749,119.592493 L118.109172,116.382917 C118.028515,116.30226 118.028515,116.171498 118.109172,116.091248 C118.189829,116.010999 118.320591,116.010591 118.400841,116.091248 L121.61001,119.300418 C121.691074,119.381075 121.691074,119.511837 121.610417,119.592493 Z"
+                                                        id="Shape" fill="#9BAEC9" fill-rule="nonzero"
+                                                        opacity="0.300000012"></path>
+                                                    <path
+                                                        d="M163.758335,122.947904 L159.965421,126.740818 C159.6432,127.063039 159.12056,127.063039 158.798339,126.740818 L154.148751,122.090822 L153,118.534991 L153.839158,117.695833 L155.447002,119.303676 C155.403822,119.613269 155.497514,119.937933 155.735411,120.175831 C156.138289,120.578708 156.791284,120.578708 157.194162,120.175831 C157.597039,119.772953 157.596632,119.119958 157.194162,118.71708 C156.956265,118.479183 156.6316,118.385898 156.322008,118.428671 L154.714164,116.820827 L155.534584,116 L159.108746,117.130419 L163.758335,121.780415 C164.080555,122.103043 164.080555,122.625277 163.758335,122.947904 Z M156.610417,119.592493 C156.52976,119.67315 156.399406,119.67315 156.318749,119.592493 L153.109172,116.382917 C153.028515,116.30226 153.028515,116.171498 153.109172,116.091248 C153.189829,116.010999 153.320591,116.010591 153.400841,116.091248 L156.61001,119.300418 C156.691074,119.381075 156.691074,119.511837 156.610417,119.592493 Z"
+                                                        id="Shape-Copy" fill="#9BAEC9" fill-rule="nonzero"
+                                                        opacity="0.300000012"></path>
+                                                    <path
+                                                        d="M199.758335,122.947904 L195.965421,126.740818 C195.6432,127.063039 195.12056,127.063039 194.798339,126.740818 L190.148751,122.090822 L189,118.534991 L189.839158,117.695833 L191.447002,119.303676 C191.403822,119.613269 191.497514,119.937933 191.735411,120.175831 C192.138289,120.578708 192.791284,120.578708 193.194162,120.175831 C193.597039,119.772953 193.596632,119.119958 193.194162,118.71708 C192.956265,118.479183 192.6316,118.385898 192.322008,118.428671 L190.714164,116.820827 L191.534584,116 L195.108746,117.130419 L199.758335,121.780415 C200.080555,122.103043 200.080555,122.625277 199.758335,122.947904 Z M192.610417,119.592493 C192.52976,119.67315 192.399406,119.67315 192.318749,119.592493 L189.109172,116.382917 C189.028515,116.30226 189.028515,116.171498 189.109172,116.091248 C189.189829,116.010999 189.320591,116.010591 189.400841,116.091248 L192.61001,119.300418 C192.691074,119.381075 192.691074,119.511837 192.610417,119.592493 Z"
+                                                        id="Shape-Copy-2" fill="#9BAEC9" fill-rule="nonzero"
+                                                        opacity="0.300000012"></path>
+                                                    <path
+                                                        d="M235.758335,122.947904 L231.965421,126.740818 C231.6432,127.063039 231.12056,127.063039 230.798339,126.740818 L226.148751,122.090822 L225,118.534991 L225.839158,117.695833 L227.447002,119.303676 C227.403822,119.613269 227.497514,119.937933 227.735411,120.175831 C228.138289,120.578708 228.791284,120.578708 229.194162,120.175831 C229.597039,119.772953 229.596632,119.119958 229.194162,118.71708 C228.956265,118.479183 228.6316,118.385898 228.322008,118.428671 L226.714164,116.820827 L227.534584,116 L231.108746,117.130419 L235.758335,121.780415 C236.080555,122.103043 236.080555,122.625277 235.758335,122.947904 Z M228.610417,119.592493 C228.52976,119.67315 228.399406,119.67315 228.318749,119.592493 L225.109172,116.382917 C225.028515,116.30226 225.028515,116.171498 225.109172,116.091248 C225.189829,116.010999 225.320591,116.010591 225.400841,116.091248 L228.61001,119.300418 C228.691074,119.381075 228.691074,119.511837 228.610417,119.592493 Z"
+                                                        id="Shape-Copy-3" fill="#9BAEC9" fill-rule="nonzero"
+                                                        opacity="0.300000012"></path>
+                                                </g>
+                                                <g id="Data-Uses/Influencer-Data"
+                                                    transform="translate(937.000000, 47.000000)">
+                                                    <g id="BG">
+                                                        <use fill="black" fill-opacity="1" filter="url(#filter-13)"
+                                                            xlink:href="#path-12"></use>
+                                                        <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-12">
+                                                        </use>
+                                                    </g>
+                                                    <g id="Shape" stroke-width="1" fill-rule="evenodd"
+                                                        transform="translate(10.000000, 10.000000)">
+                                                        <mask id="mask-15" fill="white">
+                                                            <use xlink:href="#path-14"></use>
+                                                        </mask>
+                                                        <use id="Mask" fill="#F6F7FC" xlink:href="#path-14"></use>
+                                                        <path
+                                                            d="M35.4055556,75.2478598 C31.5673333,78.0787188 30.536,82.5609122 30.7248889,84.946173 C30.9666667,87.863156 31.5635556,91.6601018 31.5635556,91.6601018 C31.5635556,91.6601018 30.3811111,92.2966706 30.3811111,94.857924 C30.7928889,101.287269 32.9613333,98.5125779 33.4071111,101.332203 C34.48,108.124767 36.9317778,106.915286 36.9317778,110.622364 C36.9317778,116.797081 34.3628889,119.684108 26.3426667,123.106602 C18.296,126.544073 10,130.868997 10,138.358042 L10,142.102564 L78,142.102564 L78,138.358042 C78,130.868997 69.7002222,126.544073 61.6497778,123.110346 C53.6295556,119.687853 51.0682222,116.80457 51.0682222,110.626108 C51.0682222,106.919031 53.5124444,108.128512 54.5891111,101.335948 C55.0386667,98.5163225 57.2033333,101.291014 57.6226667,94.8616685 C57.6226667,92.3004151 56.4364444,91.6638463 56.4364444,91.6638463 C56.4364444,91.6638463 57.0333333,87.8669005 57.2713333,84.9499175 C57.5168889,81.8906426 55.7677778,75.3601954 48.5824444,73.3568759 C47.3244444,72.0837383 46.4744444,70.0579516 50.3428889,68.0246759 C41.8806667,67.6315011 39.9124444,72.0200814 35.4055556,75.2478598 Z"
+                                                            fill="#99ADC9" fill-rule="nonzero" mask="url(#mask-15)">
+                                                        </path>
+                                                    </g>
+                                                    <g id="Text-Layers" stroke-width="1" fill-rule="evenodd"
+                                                        transform="translate(107.000000, 11.000000)" fill="#E0E6ED">
+                                                        <rect id="Rectangle-5-Copy-6" x="0" y="0" width="104"
+                                                            height="3"></rect>
+                                                        <rect id="Rectangle-5-Copy-7" x="0" y="7" width="66" height="3">
+                                                        </rect>
+                                                        <rect id="Rectangle-5-Copy-8" x="0" y="14" width="35"
+                                                            height="3"></rect>
+                                                        <rect id="Rectangle-5-Copy-9" x="0" y="31" width="81"
+                                                            height="3"></rect>
+                                                        <rect id="Rectangle-5-Copy-10" x="0" y="38" width="62"
+                                                            height="3"></rect>
+                                                        <rect id="Rectangle-5-Copy-11" x="0" y="45" width="73"
+                                                            height="3"></rect>
+                                                        <rect id="Rectangle-5-Copy-12" x="0" y="52" width="35"
+                                                            height="3"></rect>
+                                                    </g>
+                                                    <g id="Image-Layers" stroke-width="1" fill-rule="evenodd"
+                                                        transform="translate(107.000000, 92.000000)">
+                                                        <rect id="Rectangle-13" fill="#F6F7FC" x="0" y="0" width="35"
+                                                            height="23" rx="3"></rect>
+                                                        <path
+                                                            d="M13.2015686,14.6530717 L20.8289772,14.6530717 L18.3718694,11.376928 L16.4777123,13.8340358 L15.0957257,12.1959639 L13.2015686,14.6530717 Z M21.9292154,7 C22.466503,7 23.0299997,7.5629507 23.0299997,8.10078429 L23.0299997,15.7281929 C23.0299997,16.2654805 22.467049,16.8289772 21.9292154,16.8289772 L12.1007843,16.8289772 C11.5121705,16.8289772 11,16.3168067 11,15.7281929 L11,8.10078429 C11,7.56349672 11.5629507,7 12.1007843,7 L21.9292154,7 Z"
+                                                            id="Shape-Copy-2" fill="#99ADC9" fill-rule="nonzero"
+                                                            opacity="0.300000012"></path>
+                                                        <rect id="Rectangle-13-Copy-3" fill="#F6F7FC" x="0" y="29"
+                                                            width="35" height="23" rx="3"></rect>
+                                                        <path
+                                                            d="M13.2015686,43.6530717 L20.8289772,43.6530717 L18.3718694,40.376928 L16.4777123,42.8340358 L15.0957257,41.1959639 L13.2015686,43.6530717 Z M21.9292154,36 C22.466503,36 23.0299997,36.5629507 23.0299997,37.1007843 L23.0299997,44.7281929 C23.0299997,45.2654805 22.467049,45.8289772 21.9292154,45.8289772 L12.1007843,45.8289772 C11.5121705,45.8289772 11,45.3168067 11,44.7281929 L11,37.1007843 C11,36.5634967 11.5629507,36 12.1007843,36 L21.9292154,36 Z"
+                                                            id="Shape-Copy" fill="#99ADC9" fill-rule="nonzero"
+                                                            opacity="0.300000012"></path>
+                                                        <rect id="Rectangle-13-Copy" fill="#F6F7FC" x="42" y="0"
+                                                            width="35" height="23" rx="3"></rect>
+                                                        <path
+                                                            d="M55.2015686,14.6530717 L62.8289772,14.6530717 L60.3718694,11.376928 L58.4777123,13.8340358 L57.0957257,12.1959639 L55.2015686,14.6530717 Z M63.9292154,7 C64.466503,7 65.0299997,7.5629507 65.0299997,8.10078429 L65.0299997,15.7281929 C65.0299997,16.2654805 64.467049,16.8289772 63.9292154,16.8289772 L54.1007843,16.8289772 C53.5121705,16.8289772 53,16.3168067 53,15.7281929 L53,8.10078429 C53,7.56349672 53.5629507,7 54.1007843,7 L63.9292154,7 Z"
+                                                            id="Shape-Copy" fill="#99ADC9" fill-rule="nonzero"
+                                                            opacity="0.300000012"></path>
+                                                        <rect id="Rectangle-13-Copy-4" fill="#F6F7FC" x="42" y="29"
+                                                            width="35" height="23" rx="3"></rect>
+                                                        <path
+                                                            d="M55.2015686,43.6530717 L62.8289772,43.6530717 L60.3718694,40.376928 L58.4777123,42.8340358 L57.0957257,41.1959639 L55.2015686,43.6530717 Z M63.9292154,36 C64.466503,36 65.0299997,36.5629507 65.0299997,37.1007843 L65.0299997,44.7281929 C65.0299997,45.2654805 64.467049,45.8289772 63.9292154,45.8289772 L54.1007843,45.8289772 C53.5121705,45.8289772 53,45.3168067 53,44.7281929 L53,37.1007843 C53,36.5634967 53.5629507,36 54.1007843,36 L63.9292154,36 Z"
+                                                            id="Shape-Copy" fill="#99ADC9" fill-rule="nonzero"
+                                                            opacity="0.300000012"></path>
+                                                        <rect id="Rectangle-13-Copy-2" fill="#F6F7FC" x="83" y="0"
+                                                            width="35" height="23" rx="3"></rect>
+                                                        <path
+                                                            d="M96.2015686,14.6530717 L103.828977,14.6530717 L101.371869,11.376928 L99.4777123,13.8340358 L98.0957257,12.1959639 L96.2015686,14.6530717 Z M104.929215,7 C105.466503,7 106.03,7.5629507 106.03,8.10078429 L106.03,15.7281929 C106.03,16.2654805 105.467049,16.8289772 104.929215,16.8289772 L95.1007843,16.8289772 C94.5121705,16.8289772 94,16.3168067 94,15.7281929 L94,8.10078429 C94,7.56349672 94.5629507,7 95.1007843,7 L104.929215,7 Z"
+                                                            id="Shape-Copy" fill="#99ADC9" fill-rule="nonzero"
+                                                            opacity="0.300000012"></path>
+                                                        <rect id="Rectangle-13-Copy-5" fill="#F6F7FC" x="83" y="29"
+                                                            width="35" height="23" rx="3"></rect>
+                                                        <path
+                                                            d="M96.2015686,43.6530717 L103.828977,43.6530717 L101.371869,40.376928 L99.4777123,42.8340358 L98.0957257,41.1959639 L96.2015686,43.6530717 Z M104.929215,36 C105.466503,36 106.03,36.5629507 106.03,37.1007843 L106.03,44.7281929 C106.03,45.2654805 105.467049,45.8289772 104.929215,45.8289772 L95.1007843,45.8289772 C94.5121705,45.8289772 94,45.3168067 94,44.7281929 L94,37.1007843 C94,36.5634967 94.5629507,36 95.1007843,36 L104.929215,36 Z"
+                                                            id="Shape-Copy" fill="#99ADC9" fill-rule="nonzero"
+                                                            opacity="0.300000012"></path>
+                                                    </g>
+                                                </g>
+                                                <g id="Data-Uses/Article-Data"
+                                                    transform="translate(76.000000, 47.000000)">
+                                                    <g id="Data-Uses/Product-Pricing" stroke-width="1"
+                                                        fill-rule="evenodd">
+                                                        <g id="Rectangle-4">
+                                                            <use fill="black" fill-opacity="1" filter="url(#filter-17)"
+                                                                xlink:href="#path-16"></use>
+                                                            <use fill="#FFFFFF" fill-rule="evenodd"
+                                                                xlink:href="#path-16"></use>
+                                                        </g>
+                                                        <rect id="Rectangle-3" fill="#F6F7FC" x="10" y="32" width="215"
+                                                            height="50" rx="5"></rect>
+                                                        <rect id="Rectangle" fill-opacity="0.4" fill="#9BAEC9" x="36"
+                                                            y="12" width="163" height="4"></rect>
+                                                        <rect id="Rectangle-Copy" fill-opacity="0.4" fill="#9BAEC9"
+                                                            x="66" y="20" width="103" height="4"></rect>
+                                                        <rect id="Rectangle-5" fill="#E0E6ED" x="10" y="92" width="103"
+                                                            height="3"></rect>
+                                                        <rect id="Rectangle-5-Copy" fill="#E0E6ED" x="10" y="99"
+                                                            width="83" height="3"></rect>
+                                                        <rect id="Rectangle-5-Copy-2" fill="#E0E6ED" x="10" y="106"
+                                                            width="96" height="3"></rect>
+                                                        <rect id="Rectangle-5-Copy-6" fill="#E0E6ED" x="10" y="113"
+                                                            width="49" height="3"></rect>
+                                                        <rect id="Rectangle-5-Copy-7" fill="#E0E6ED" x="10" y="120"
+                                                            width="99" height="3"></rect>
+                                                        <rect id="Rectangle-5-Copy-8" fill="#E0E6ED" x="10" y="127"
+                                                            width="84" height="3"></rect>
+                                                        <rect id="Rectangle-5-Copy-9" fill="#E0E6ED" x="10" y="134"
+                                                            width="69" height="3"></rect>
+                                                        <rect id="Rectangle-5-Copy-10" fill="#E0E6ED" x="10" y="141"
+                                                            width="79" height="3"></rect>
+                                                        <rect id="Rectangle-5-Copy-5" fill="#E0E6ED" x="120" y="92"
+                                                            width="103" height="3"></rect>
+                                                        <rect id="Rectangle-5-Copy-4" fill="#E0E6ED" x="120" y="99"
+                                                            width="73" height="3"></rect>
+                                                        <rect id="Rectangle-5-Copy-3" fill="#E0E6ED" x="120" y="106"
+                                                            width="89" height="3"></rect>
+                                                        <rect id="Rectangle-5-Copy-11" fill="#E0E6ED" x="120" y="113"
+                                                            width="69" height="3"></rect>
+                                                        <rect id="Rectangle-5-Copy-12" fill="#E0E6ED" x="120" y="120"
+                                                            width="49" height="3"></rect>
+                                                        <rect id="Rectangle-5-Copy-13" fill="#E0E6ED" x="120" y="127"
+                                                            width="89" height="3"></rect>
+                                                        <rect id="Rectangle-5-Copy-14" fill="#E0E6ED" x="120" y="134"
+                                                            width="99" height="3"></rect>
+                                                        <rect id="Rectangle-5-Copy-15" fill="#E0E6ED" x="120" y="141"
+                                                            width="79" height="3"></rect>
+                                                    </g>
+                                                    <path
+                                                        d="M106.861699,64.3763827 L127.169753,64.3763827 L120.627679,55.6536161 L115.584466,62.195691 L111.904912,57.8343078 L106.861699,64.3763827 Z M130.099149,44 C131.529683,44 133.029999,45.4988621 133.029999,46.9308496 L133.029999,67.2389039 C133.029999,68.6694376 131.531137,70.1697535 130.099149,70.1697535 L103.93085,70.1697535 C102.363659,70.1697535 101,68.8060943 101,67.2389039 L101,46.9308496 C101,45.5003158 102.498862,44 103.93085,44 L130.099149,44 Z"
+                                                        id="Shape-Copy" fill="#99ADC9" fill-rule="nonzero"
+                                                        opacity="0.300000012"></path>
+                                                </g>
+                                                <g id="Data-Uses/Article-Data"
+                                                    transform="translate(1224.000000, 47.000000)">
+                                                    <g id="Data-Uses/Product-Pricing" stroke-width="1"
+                                                        fill-rule="evenodd">
+                                                        <g id="Rectangle-4">
+                                                            <use fill="black" fill-opacity="1" filter="url(#filter-19)"
+                                                                xlink:href="#path-18"></use>
+                                                            <use fill="#FFFFFF" fill-rule="evenodd"
+                                                                xlink:href="#path-18"></use>
+                                                        </g>
+                                                        <rect id="Rectangle-3" fill="#F6F7FC" x="10" y="32" width="215"
+                                                            height="50" rx="5"></rect>
+                                                        <rect id="Rectangle" fill-opacity="0.4" fill="#9BAEC9" x="36"
+                                                            y="12" width="163" height="4"></rect>
+                                                        <rect id="Rectangle-Copy" fill-opacity="0.4" fill="#9BAEC9"
+                                                            x="66" y="20" width="103" height="4"></rect>
+                                                        <rect id="Rectangle-5" fill="#E0E6ED" x="10" y="92" width="103"
+                                                            height="3"></rect>
+                                                        <rect id="Rectangle-5-Copy" fill="#E0E6ED" x="10" y="99"
+                                                            width="83" height="3"></rect>
+                                                        <rect id="Rectangle-5-Copy-2" fill="#E0E6ED" x="10" y="106"
+                                                            width="96" height="3"></rect>
+                                                        <rect id="Rectangle-5-Copy-6" fill="#E0E6ED" x="10" y="113"
+                                                            width="49" height="3"></rect>
+                                                        <rect id="Rectangle-5-Copy-7" fill="#E0E6ED" x="10" y="120"
+                                                            width="99" height="3"></rect>
+                                                        <rect id="Rectangle-5-Copy-8" fill="#E0E6ED" x="10" y="127"
+                                                            width="84" height="3"></rect>
+                                                        <rect id="Rectangle-5-Copy-9" fill="#E0E6ED" x="10" y="134"
+                                                            width="69" height="3"></rect>
+                                                        <rect id="Rectangle-5-Copy-10" fill="#E0E6ED" x="10" y="141"
+                                                            width="79" height="3"></rect>
+                                                        <rect id="Rectangle-5-Copy-5" fill="#E0E6ED" x="120" y="92"
+                                                            width="103" height="3"></rect>
+                                                        <rect id="Rectangle-5-Copy-4" fill="#E0E6ED" x="120" y="99"
+                                                            width="73" height="3"></rect>
+                                                        <rect id="Rectangle-5-Copy-3" fill="#E0E6ED" x="120" y="106"
+                                                            width="89" height="3"></rect>
+                                                        <rect id="Rectangle-5-Copy-11" fill="#E0E6ED" x="120" y="113"
+                                                            width="69" height="3"></rect>
+                                                        <rect id="Rectangle-5-Copy-12" fill="#E0E6ED" x="120" y="120"
+                                                            width="49" height="3"></rect>
+                                                        <rect id="Rectangle-5-Copy-13" fill="#E0E6ED" x="120" y="127"
+                                                            width="89" height="3"></rect>
+                                                        <rect id="Rectangle-5-Copy-14" fill="#E0E6ED" x="120" y="134"
+                                                            width="99" height="3"></rect>
+                                                        <rect id="Rectangle-5-Copy-15" fill="#E0E6ED" x="120" y="141"
+                                                            width="79" height="3"></rect>
+                                                    </g>
+                                                    <path
+                                                        d="M106.861699,64.3763827 L127.169753,64.3763827 L120.627679,55.6536161 L115.584466,62.195691 L111.904912,57.8343078 L106.861699,64.3763827 Z M130.099149,44 C131.529683,44 133.029999,45.4988621 133.029999,46.9308496 L133.029999,67.2389039 C133.029999,68.6694376 131.531137,70.1697535 130.099149,70.1697535 L103.93085,70.1697535 C102.363659,70.1697535 101,68.8060943 101,67.2389039 L101,46.9308496 C101,45.5003158 102.498862,44 103.93085,44 L130.099149,44 Z"
+                                                        id="Shape-Copy" fill="#99ADC9" fill-rule="nonzero"
+                                                        opacity="0.300000012"></path>
+                                                </g>
+                                            </g>
+                                            <g id="Scanner"
+                                                transform="translate(194.500000, 24.500000) rotate(180.000000) translate(-194.500000, -24.500000) translate(57.000000, 11.000000)"
+                                                style="
+                                            ">
+                                                <g id="Rectangle-6">
+                                                    <use fill="black" fill-opacity="1" filter="url(#filter-21)"
+                                                        xlink:href="#path-20"></use>
+                                                    <use fill="#00FFC3" fill-rule="evenodd" xlink:href="#path-20"></use>
+                                                </g>
+                                                <rect id="Rectangle-6-Copy" fill="url(#linearGradient-22)" x="0" y="5"
+                                                    width="275" height="22" style="/* display: none; */"></rect>
+                                            </g>
+                                        </g>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div< class="row">
+                                <div class="col-md-12" style="text-align: center;display: none" id="checkmark-loader">
+                                    <div class="circle-loader">
+                                        <div class="checkmark draw"></div>
+                                    </div>
+                                </div>
+                            </div<>
+                        </div>
+                    </fieldset>
+                    <h6>المعلومات الشخصية</h6>
+                    <fieldset>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>الاسم:</label>
+                                    <input type="text" id="name1" name="name" class="form-control"
+                                        placeholder="John Doe">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>إسم العائلة:</label>
+                                    <input type="text" id="familyname1" name="name" class="form-control"
+                                        placeholder="John Doe">
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>البريد الإلكتروني:</label>
+                                    <input type="email" id="email1" name="email" class="form-control"
+                                        placeholder="your@email.com">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label>تاريخ الولادة:</label>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <select name="birth-month" data-placeholder="Month" class="select">
+                                                <option></option>
+                                                <option value="1">كانون الثاني</option>
+                                                <option value="2">February</option>
+                                                <option value="3" selected>March</option>
+                                                <option value="4">April</option>
+                                                <option value="5">May</option>
+                                                <option value="6">June</option>
+                                                <option value="7">July</option>
+                                                <option value="8">August</option>
+                                                <option value="9">September</option>
+                                                <option value="10">October</option>
+                                                <option value="11">November</option>
+                                                <option value="12">December</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <select name="birth-day" data-placeholder="Day" class="select">
+                                                <option></option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">٤</option>
+                                                <option value="5">5</option>
+                                                <option value="6" selected>٦</option>
+                                                <option value="7">7</option>
+                                                <option value="8">8</option>
+                                                <option value="9">9</option>
+                                                <option value="...">...</option>
+                                                <option value="31">31</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <select name="birth-year" data-placeholder="Year" class="select">
+                                                <option></option>
+                                                <option value="1">1980</option>
+                                                <option value="2">1981</option>
+                                                <option value="3">1982</option>
+                                                <option value="4">1983</option>
+                                                <option value="5" selected>١٩٨٤</option>
+                                                <option value="6">1985</option>
+                                                <option value="7">1986</option>
+                                                <option value="8">١٩٨٧</option>
+                                                <option value="9">1988</option>
+                                                <option value="10">1989</option>
+                                                <option value="11">1990</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>رقم الهاتف:</label>
+                                    <input type="text" id="tel1" name="tel" class="form-control"
+                                        placeholder="+99-99-9999-9999" data-mask="+99-99-9999-9999">
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>وظيفة:</label>
+                                    <select name="position" data-placeholder="Select position" class="select">
+                                        <option></option>
+                                        <optgroup label="Developer Relations">
+                                            <option value="1">مهندس مبيعات</option>
+                                            <option value="2">مستشار حلول الإعلانات</option>
+                                            <option value="3" selected>مستشار الحلول التقنية</option>
+                                            <option value="4">متدرب الأعمال</option>
+                                        </optgroup>
+
+                                        <optgroup label="Engineering &amp; Design">
+                                            <option value="5">Interaction Designer</option>
+                                            <option value="6">Technical Program Manager</option>
+                                            <option value="7">Software Engineer</option>
+                                            <option value="8">Information Security Engineer</option>
+                                        </optgroup>
+
+                                        <optgroup label="Marketing &amp; Communications">
+                                            <option value="13">Media Outreach Manager</option>
+                                            <option value="14">Research Manager</option>
+                                            <option value="15">Marketing Intern</option>
+                                            <option value="16">Business Intern</option>
+                                        </optgroup>
+
+                                        <optgroup label="Sales Operations">
+                                            <option value="17">Sales Operations Analyst</option>
+                                            <option value="18">Technology Product Manager</option>
+                                            <option value="19">Product Expert</option>
+                                            <option value="20">Sales Insights Analyst</option>
+                                            <option value="21">Customer Operations Analyst</option>
+                                        </optgroup>
+                                    </select>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>مكان الإقامة:</label>
+                                    <select name="location" data-placeholder="Select position" class="select">
+                                        <option></option>
+                                        <optgroup label="North America">
+                                            <option value="1" selected>لبنان</option>
+                                            <option value="2">Canada</option>
+                                        </optgroup>
+
+                                        <optgroup label="Latin America">
+                                            <option value="3">Chile</option>
+                                            <option value="4">Argentina</option>
+                                            <option value="5">Colombia</option>
+                                            <option value="6">Peru</option>
+                                        </optgroup>
+
+                                        <optgroup label="Europe">
+                                            <option value="8">Croatia</option>
+                                            <option value="9">Hungary</option>
+                                            <option value="10">Ukraine</option>
+                                            <option value="11">Greece</option>
+                                        </optgroup>
+
+                                        <optgroup label="Middle East &amp; Africa">
+                                            <option value="21">Egypt</option>
+                                            <option value="22">Israel</option>
+                                            <option value="23">Nigeria</option>
+                                            <option value="24">United Arab Emirates</option>
+                                        </optgroup>
+
+                                        <optgroup label="Asia Pacific">
+                                            <option value="26">Australia</option>
+                                            <option value="27">China</option>
+                                            <option value="28">India</option>
+                                            <option value="29">Singapore</option>
+                                        </optgroup>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <h6>معلومات الطلب</h6>
+                    <fieldset>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>الغرض من الطلب:</label>
+                                    <input type="text" id="purpose1" name="university" placeholder="University name"
+                                        class="form-control">
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>ملاحظات:</label>
+                                    <input type="text" id="baby-name1" name="degree-level"
+                                        placeholder="Bachelor, Master etc." class="form-control">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>رقم العقار وموقعه (المنطقة، الشارع، الطابق):</label>
+                                    <input type="text" id="place1" name="degree-level"
+                                        placeholder="Bachelor, Master etc." class="form-control">
+                                </div>
+
+                                <div class="form-group">
+                                    <label>المنطقة:</label>
+                                    <input type="text" id="type1" name="specialization"
+                                        placeholder="Design, Development etc." class="form-control">
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <label>سجل الطلب بتاريخ:</label>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <select name="birth-month" data-placeholder="Month" class="select">
+                                                        <option></option>
+                                                        <option value="1">January</option>
+                                                        <option value="2">February</option>
+                                                        <option value="3">March</option>
+                                                        <option value="4">أبريل</option>
+                                                        <option value="5">May</option>
+                                                        <option value="6" selected>حزيران</option>
+                                                        <option value="7">July</option>
+                                                        <option value="8">August</option>
+                                                        <option value="9">September</option>
+                                                        <option value="10">October</option>
+                                                        <option value="11">November</option>
+                                                        <option value="12">December</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <select name="birth-day" data-placeholder="Day" class="select">
+                                                        <option></option>
+                                                        <option value="1">1</option>
+                                                        <option value="2" d>٢</option>
+                                                        <option value="3">3</option>
+                                                        <option value="4">4</option>
+                                                        <option value="5">5</option>
+                                                        <option value="6" selected>٦</option>
+                                                        <option value="7">7</option>
+                                                        <option value="8">8</option>
+                                                        <option value="9">9</option>
+                                                        <option value="...">...</option>
+                                                        <option value="31">31</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <select name="birth-year" data-placeholder="Year" class="select">
+                                                        <option></option>
+                                                        <option value="1">1980</option>
+                                                        <option value="2">1981</option>
+                                                        <option value="3">1982</option>
+                                                        <option value="4">1983</option>
+                                                        <option value="5">1984</option>
+                                                        <option value="6">1985</option>
+                                                        <option value="7">1986</option>
+                                                        <option value="8" selected>٢٠١٩</option>
+                                                        <option value="9">1988</option>
+                                                        <option value="10">1989</option>
+                                                        <option value="11">1990</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>مركز التسجيل:</label>
+                                    <input type="text" id="reg1" name="education-language"
+                                        placeholder="English, German etc." class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                       
+                        <div class="row">
+                            <div class="col-md-2">
+                                <!-- Modal -->
+                                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">التحقق من قاعدة
+                                                    البيانات في وزارة الأشغال</h5>
+                                                <button type="button" class="close" data-dismiss="modal"
+                                                    aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="col-lg-1">
+                                                    <div class="wrapper" style="display: none;" id="wrapper-id">
+                                                        <div class="card" id="db"><i data-feather="user"></i></div>
+                                                        <div class="connection" data-dir="vertical">
+                                                            <span></span><span></span><span></span><span></span><span></span><span></span>
+                                                        </div>
+                                                        <div class="card" id="server"><i data-feather="server"></i>
+                                                        </div>
+                                                        <div class="connection" data-dir="vertical">
+                                                            <span></span><span></span><span></span><span></span><span></span><span></span>
+                                                        </div>
+                                                        <div class="card" id="user"><i data-feather="database"></i>
+                                                        </div>
+                                                    </div>
+                                                    <div class="process" style="display: none;" id="check-button">
+                                                        <svg class="check-icon" width="48" height="48"
+                                                            viewBox="0 0 48 48" fill="none"
+                                                            xmlns="http://www.w3.org/2000/svg">
+                                                            <g id="check">
+                                                                <path id="check-mark" d="M11 23L19 30.5L47 1"
+                                                                    stroke="black" stroke-width="2"
+                                                                    stroke-linecap="round" stroke-linejoin="round" />
+                                                                <path id="check-circle"
+                                                                    d="M31 2.08461C16.5762 -2.51861 1 8.62543 1 24C1 36.7026 11.2975 47 24 47C39.3746 47 50.5186 31.4238 45.9154 17"
+                                                                    stroke="black" stroke-width="2"
+                                                                    stroke-linecap="round" />
+                                                            </g>
+                                                        </svg>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-dismiss="modal">أغلق</button>
+                                                <button type="button" class="btn btn-primary"
+                                                    onclick="Finish()">تم</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <button type="button" class="btn-check" onclick="datachecking()">التحقق من
+                                    المعلومات</button>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <!-- <h6>تسجيل وثيقة الولادة</h6>
+                    <fieldset>
+                        <div class="row">
+
+                        </div>
+                    </fieldset>     -->
+                </form>
+            </div>
+            <!-- /starting step -->
+        <div class="panel panel-white">
+                <div class="panel-heading">
+                    <h6 class="panel-title">المستندات التي تم تحميلها</h6>
+                    <div class="heading-elements">
+                        <ul class="icons-list">
+                            <li><a data-action="collapse"></a></li>
+                            <li><a data-action="reload"></a></li>
+                            <li><a data-action="close"></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="documents">
+                        <div class="document">
+                            <div class="document__img"></div>
+                            <div class="document__title">صورة عن الهوية</div>
+                            <div class="document__date">٠٧/٣/٢٠١٩</div>
+                        </div>
+                        <div class="document">
+                            <div class="document__img"></div>
+                            <div class="document__title">إفادة تخطيط وإرتفاق</div>
+                            <div class="document__date">٠٧/٣/٢٠١٩</div>
+                        </div>
+                        <div class="document">
+                            <div class="document__img"></div>
+                            <div class="document__title">نسخ عن خريطة الموقع</div>
+                            <div class="document__date">٠٧/٣/٢٠١٩</div>
+                        </div>
+                        <div class="document">
+                            <div class="document__img"></div>
+                            <div class="document__title"> صورة فوتوغرافية للموقع</div>
+                            <div class="document__date">٠٧/٣/٢٠١٩</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Remote content source -->
+
+            <!-- /remote content source -->
+
+        </div>
+        <!-- /main content -->
+
+    </div>
+    <!-- /page content -->
+
+    </div>
+    <!-- /page container -->
+    <!-- Footer -->
+    <div class="navbar navbar-default navbar-fixed-bottom footer">
+        <ul class="nav navbar-nav visible-xs-block">
+            <li><a class="text-center collapsed" data-toggle="collapse" data-target="#footer"><i
+                        class="icon-circle-up2"></i></a></li>
+        </ul>
+
+        <div class="navbar-collapse collapse" id="footer">
+            <div class="navbar-text">
+                <strong>Everteam </strong> <span>&copy;2020-2021 </span>
+            </div>
+
+            <div class="navbar-right">
+                <ul class="nav navbar-nav">
+                    <li><a href="#">حول</a></li>
+                    <li><a href="#">شروط</a></li>
+                    <li><a href="#">اتصل</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script src="./assets/js/AllScripts.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.21.0/feather.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/animejs@3.1.0/lib/anime.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            document.getElementById('name1').value = "حسن"
+            document.getElementById('familyname1').value = "ابراهيم"
+            document.getElementById('email1').value = "hassan@gmail.com"
+            document.getElementById('tel1').value = "٩٦٤٢٥٦٤٢+"
+            $('#purpose1').val('طلب تسجيل عقد إيجار');
+            $('#place1').val('بيروت, شارع الحمرا, بناية الخليل, الطابق الرابع');
+            $('#type1').val('بيروت');
+            $('#reg1').val('بيروت');
+            $('#baby-name1').val('لا يوجد مخالفات');
+            
+        }, false);
+        // Specify custom starting step
+        $(".steps-starting-step").steps({
+            headerTag: "h6",
+            bodyTag: "fieldset",
+            startIndex: 0,
+            titleTemplate: '<span class="number">#index#</span> #title#',
+            autoFocus: true,
+            labels: {
+                finish: 'إرسال',
+                next: 'التالي',
+                previous: 'السابق'
+            },
+            onFinished: function (event, currentIndex) {
+                window.location.href = "Employee_1.html"
+            }
+
+        });
+        // Initialize plugins
+        // ------------------------------
+
+        // Select2 selects
+        $('.select').select2();
+
+
+        // Simple select without search
+        $('.select-simple').select2({
+            minimumResultsForSearch: Infinity
+        });
+
+
+        // Styled checkboxes and radios
+        $('.styled').uniform({
+            radioClass: 'choice'
+        });
+
+
+        // Styled file input
+        $('.file-styled').uniform({
+            fileButtonClass: 'action btn bg-blue'
+        });
+    </script>
+    <!-- /footer -->
+</body>
+
+</html>

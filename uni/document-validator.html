@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+
+<head>
+    <style>
+        .navbar-brand>img {
+            display: inline !important;
+            height: 28px !important;
+            width: 28px;
+        }
+
+        .swal2-image {
+            width: 472px !important;
+            height: 427px;
+            object-fit: cover;
+        }
+
+        /* .swal2-title {
+            width: 476px;
+        } */
+
+        .swal2-popup {
+            width: 550px !important;
+        }
+
+        .flex {
+            display: flex;
+        }
+
+        .lbl {
+            min-width: 124px;
+            color: #3273bb;
+            text-align: right;
+            padding-bottom: 3px;
+        }
+    </style>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Digital Student Workspace</title>
+
+    <!-- Global stylesheets -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet" type="text/css">
+    <link href="assets/css/icons/icomoon/styles.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/core.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/components.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/colors.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Cairo&display=swap" rel="stylesheet">
+
+    <!-- /global stylesheets -->
+
+    <!-- Core JS files -->
+    <script type="text/javascript" src="assets/js/plugins/loaders/pace.min.js"></script>
+    <script type="text/javascript" src="assets/js/core/libraries/jquery.min.js"></script>
+    <script type="text/javascript" src="assets/js/core/libraries/bootstrap.min.js"></script>
+    <script type="text/javascript" src="assets/js/plugins/loaders/blockui.min.js"></script>
+    <script type="text/javascript" src="assets/js/plugins/ui/nicescroll.min.js"></script>
+    <script type="text/javascript" src="assets/js/plugins/ui/drilldown.js"></script>
+    <!-- /core JS files -->
+
+    <script type="text/javascript" src="assets/js/plugins/uploaders/dropzone.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script src="https://cdn.jsdelivr.net/npm/animejs@3.1.0/lib/anime.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+
+
+    <!-- Theme JS files -->
+    <script type="text/javascript" src="assets/js/core/app.js"></script>
+    <!-- /theme JS files -->
+
+
+</head>
+
+<body>
+
+    <!-- Main navbar -->
+    <div class="navbar navbar-inverse">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="index.html">
+                <!-- <img src="assets/images/logo_light.png" alt=""> -->
+                <i class="icon-shutter mr-5"></i>
+                <strong style="font-size: 16px;">المنصة الإلكترونية لخدمات الجامعة</strong>
+            </a>
+
+            <ul class="nav navbar-nav pull-right visible-xs-block">
+                <li><a data-toggle="collapse" data-target="#navbar-mobile"><i class="icon-tree5"></i></a></li>
+            </ul>
+        </div>
+
+    </div>
+    <!-- /main navbar -->
+
+
+    <!-- Second navbar -->
+    <div class="navbar navbar-default" id="navbar-second">
+        <ul class="nav navbar-nav no-border visible-xs-block">
+            <li><a class="text-center collapsed" data-toggle="collapse" data-target="#navbar-second-toggle"><i class="icon-menu7"></i></a></li>
+        </ul>
+
+        <div class="navbar-collapse collapse" id="navbar-second-toggle">
+            <ul class="nav navbar-nav">
+                <li><a href="javascript:void()"><i class="icon-display4 position-left"></i> خدمات عامة</a></li>
+
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                <!-- <li>
+						<a href="changelog.html">
+							<i class="icon-history position-left"></i>
+							Changelog
+							<span class="label label-inline position-right bg-success-400">1.6</span>
+						</a>
+					</li> -->
+
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <i class="icon-cog3"></i>
+                        <span class="visible-xs-inline-block position-right">Share</span>
+                        <span class="caret"></span>
+                    </a>
+
+                    <ul class="dropdown-menu dropdown-menu-right">
+                        <li><a href="#"><i class="icon-user-lock"></i>أمن الحساب</a></li>
+                        <li><a href="#"><i class="icon-statistics"></i> تحليلات</a></li>
+                        <li><a href="#"><i class="icon-accessibility"></i> إمكانية الوصول</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#"><i class="icon-gear"></i> جميع الإعدادات</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- /second navbar -->
+
+    <!-- Page header -->
+    <div class="page-header">
+        <div class="page-header-content">
+            <div class="page-title">
+                <h4><i class="icon-arrow-right6 position-left"></i> <span class="text-semibold">خدمات</span> </h4>
+
+                <ul class="breadcrumb breadcrumb-caret position-right">
+                    <li>خدمات</li>
+                    <li>خدمة التحقق من الملفات</li>
+                </ul>
+            </div>
+
+            <!-- <div class="heading-elements">
+					<div class="heading-btn-group">
+						<a href="#" class="btn btn-link btn-float has-text"><i class="icon-bars-alt text-primary"></i><span>Statistics</span></a>
+						<a href="#" class="btn btn-link btn-float has-text"><i class="icon-calculator text-primary"></i> <span>Invoices</span></a>
+						<a href="#" class="btn btn-link btn-float has-text"><i class="icon-calendar5 text-primary"></i> <span>Schedule</span></a>
+					</div>
+				</div> -->
+        </div>
+    </div>
+    <!-- /page header -->
+
+
+    <!-- Page container -->
+    <div class="page-container">
+
+        <!-- Page content -->
+        <div class="page-content">
+
+            <!-- Main content -->
+            <div class="content-wrapper">
+                <a href="javascript:void(0)" id="scan" class="btn bg-blue btn-labeled heading-btn mb-20"><b><i class="icon-task"></i></b>التاكد من صحة الملفات</a>
+
+                <div style="display: flex;">
+                    <div class="col-md-6 ">
+                        <div class="" style="height: 100%;">
+                            <form  style="height: 100%;" action="#" class="dropzone dz-clickable" id="dropzone_multiple">
+                                <div class="dz-default dz-message"><span>Drop files to upload <span>or CLICK</span></span></div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6" id="success" style="display: none;">
+                        <div class="panel" style="height: 100%;">
+                            <div class="panel-body text-center">
+                                <div class="icon-object border-success text-success"><i class="icon-checkmark4"></i></div>
+                                <h5 class="text-semibold">تم التاكد من صحة الملفات</h5>
+                                <div class="col-md-6">
+                                    <div class="flex">
+                                        <div class="lbl">اسم الطالب</div>
+                                        <div class="">مازن فرح</div>
+                                    </div>
+                                    <div class="flex">
+                                        <div class="lbl">الطلب</div>
+                                        <div class="">افادة عن شهادة العلامات</div>
+                                    </div>
+                                    <div class="flex">
+                                        <div class="lbl">رقم الطلب</div>
+                                        <div class="">R-00180</div>
+                                    </div>
+                                    <div class="flex">
+                                        <div class="lbl">تاريخ الاصدار</div>
+                                        <div class="" id="issue_date"></div>
+                                    </div>
+                                    <div class="flex">
+                                        <div class="lbl">الطابع الزمني</div>
+                                        <div class="" id="hash">2019-09-23T18:25:43.511Z</div>
+                                    </div>
+                                    <div class="flex">
+                                        <div class="lbl">صلاحية الملف</div>
+                                        <div class="" id="hash">2021-06-01</div>
+                                    </div>
+                                    <div class="flex">
+                                        <div class="lbl">تحميل</div>
+                                        <div class="" id="hash">1/2</div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="flex">
+                                        <img style="height: 130px;" src="assets/images/qr_code.png">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6" id="failed" style="display: none;">
+                        <div class="panel" style="height: 100%;">
+                            <div class="panel-body text-center">
+                                <div class="icon-object border-danger text-danger"><i class="icon-blocked"></i></div>
+                                <h5 class="text-semibold">الطلب غير صالح</h5>
+                                <h4 class="text-semibold">للتواصل مع قسم المراجعات اضغط على الرابط.</h4>
+                                <a href="javascript:void(0)" class="btn bg-primary-400">اضغط هنا</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
+            <!-- /main content -->
+
+        </div>
+        <!-- /page content -->
+
+    </div>
+    <!-- /page container -->
+
+    <!-- Footer -->
+    <div class="footer text-muted">
+        &copy; 2020. Copyrights
+    </div>
+    <!-- /footer -->
+
+
+    <script>
+
+
+        // Dropzone
+        // ------------------------------
+
+        // Defaults
+        Dropzone.autoDiscover = false;
+
+        // Multiple files
+        $("#dropzone_multiple").dropzone({
+            paramName: "file", // The name that will be used to transfer the file
+            dictDefaultMessage: 'Drop files to upload <span>or CLICK</span>',
+            maxFilesize: 0.1 // MB
+        });
+        var cntrlIsPressed = false;
+
+        $(document).keydown(function (event) {
+            if (event.which == "17")
+                cntrlIsPressed = true;
+        });
+
+        $(document).keyup(function () {
+            cntrlIsPressed = false;
+        });
+
+        function successFlow() {
+
+            Swal.fire({
+                title: 'جاري التاكد من صحة الطلب',
+                imageUrl: './assets/images/5427-scan-qr-code.gif',
+                // imageHeight: 400,
+                // imageWidth: 400,
+                imageAlt: 'A tall image',
+                showCancelButton: false,
+                showConfirmButton: false
+            })
+            setTimeout(() => {
+                Swal.close();
+
+                Swal.fire({
+                    title: 'تم التاكد من صحة الطلب',
+                    icon: 'success',
+                    // iconHtml: '؟',
+                    confirmButtonText: 'حسنا',
+                    showCloseButton: true
+                })
+                $('#success').show()
+            }, 4000);
+
+        }
+
+        function failFlow() {
+
+            Swal.fire({
+                title: 'جاري التاكد من صحة الطلب',
+                imageUrl: './assets/images/5427-scan-qr-code.gif',
+                // imageHeight: 400,
+                // imageWidth: 400,
+                imageAlt: 'A tall image',
+                showCancelButton: false,
+                showConfirmButton: false
+            })
+            setTimeout(() => {
+                Swal.close();
+
+                Swal.fire({
+                    title: 'الطلب غير صالح',
+                    icon: 'error',
+                    // iconHtml: '؟',
+                    confirmButtonText: 'حسنا',
+                    showCloseButton: true
+                })
+                $('#failed').show()
+            }, 4000);
+
+        }
+
+        $('#scan').click(function () {
+            $('#failed').hide()
+            $('#success').hide()
+
+            if (cntrlIsPressed)
+                failFlow()
+            else
+                successFlow()
+
+        })
+
+        let today = new Date()
+        let issue_date = `${today.getFullYear()}-${today.getMonth() + 1}-${today.getDate()}`
+        $('#issue_date').html(issue_date)
+        $('#hash').html(new Date().toJSON())
+
+    </script>
+</body>
+
+</html>

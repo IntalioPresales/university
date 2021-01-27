@@ -1,0 +1,194 @@
+form {
+  margin: 0 auto;
+  max-width: 400px;
+  min-width: 320px;
+  border-top: 0;
+  overflow: hidden;
+}
+form ul {
+  list-style-type: square;
+  margin: 0;
+  padding: 0 40px 0 20px;
+}
+form p,
+form li {
+  line-height: 1.3;
+  font-size: 14px;
+}
+form li {
+  margin-bottom: 12px;
+}
+form .form-content {
+  border: 1px solid #ccc;
+  padding: 70px 20px 20px 20px;
+  background: #e4e4e4;
+  min-height: 400px;
+}
+form label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 12px;
+  line-height: 1;
+  text-transform: uppercase;
+  color: #666;
+  position: relative;
+}
+form .field label {
+  top: -50px;
+}
+form .field-group,
+form .field {
+  margin-bottom: 20px;
+  position: relative;
+}
+form .field {
+  padding-top: 17px;
+}
+form .field-group:after,
+form .field-group:before {
+  content: "";
+  display: table;
+  clear: both;
+}
+form .focus-bar {
+  display: block;
+  width: 100%;
+  height: 2px;
+  margin-top: -1px;
+  z-index: 2;
+  pointer-events: none;
+  position: relative;
+}
+form .focus-bar:before,
+form .focus-bar:after {
+  content: "";
+  height: 2px;
+  width: 0;
+  bottom: 1px;
+  position: absolute;
+  background: #e19d3c;
+  transition: 0.2s ease all;
+}
+form .focus-bar:before {
+  left: 50%;
+}
+form .focus-bar:after {
+  right: 50%;
+}
+form input {
+  width: 100%;
+  padding: 5px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  position: relative;
+  height: 32px;
+}
+form input:focus {
+  outline: none;
+}
+form input:focus + .focus-bar:before,
+form input:focus + .focus-bar:after {
+  width: 50%;
+}
+form input:focus + .focus-bar + label,
+form input:focus + .focus-bar + label {
+  color: #ccc;
+}
+form .expire-date {
+  padding-top: 0;
+}
+form .expire-date input {
+  width: 50px;
+}
+form .expire-date div {
+  float: left;
+}
+form .expire-date .divider {
+  padding: 0 5px;
+  line-height: 32px;
+  color: #ccc;
+  user-select: none;
+}
+form .ccv {
+  width: 80px;
+  float: right;
+}
+form ::selection {
+  background: rgba(253, 218, 134, 0.6);
+}
+form ::-moz-selection {
+  background: rgba(253, 218, 134, 0.6);
+}
+form button {
+  position: relative;
+  overflow: hidden;
+  padding: 10px;
+  display: block;
+  width: 80%;
+  background: linear-gradient(#fdda86 0px, #e19d3c 100%);
+  color: #fff;
+  font-size: 14px;
+  border: 1px solid #e19d3c;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+  border-radius: 2px;
+  margin: -20px auto 10px auto;
+  transition: 0.75s ease border-color;
+}
+form button span {
+  position: relative;
+  z-index: 2;
+}
+form button:after {
+  transform: translate(-50%, -50%);
+  content: "";
+  background: #e19d3c;
+  width: 0px;
+  height: 0px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 50%;
+}
+form button:hover {
+  background: #e19d3c;
+}
+form button:focus {
+  outline: none;
+  border-color: #b16a02;
+}
+form button:focus:after {
+  animation: anim-out 0.75s;
+  animation-fill-mode: forwards;
+}
+
+.col-50 {
+  width: 50%;
+  float: left;
+}
+
+@keyframes glow {
+  0% {
+    text-shadow: -1px -1px 0px rgba(255, 255, 255, 0.3), 1px 1px 0px rgba(0, 0, 0, 0.5);
+  }
+  70% {
+    color: rgba(255, 255, 255, 0.4);
+    text-shadow: -1px 1px 8px #ffc, 1px -1px 8px rgba(255, 255, 255, 0.6);
+  }
+  100% {
+    text-shadow: -1px -1px 0px rgba(255, 255, 255, 0.3), 1px 1px 0px rgba(0, 0, 0, 0.5);
+  }
+}
+@keyframes anim-out {
+  0% {
+    width: 0%;
+    height: 0px;
+  }
+  100% {
+    width: 200%;
+    height: 300px;
+  }
+}
+
+form .expire-date input {
+  width: 110px;
+}

@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Dashboard</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card  mode="ios" style="background-color: #ffffff;">
+    <ion-card-header>
+      <ion-card-title class="white">
+       In Progress Requests
+      </ion-card-title>
+      <ion-card-subtitle class="white">
+        <ion-fab-button class="ion-button-css">
+          <ion-text class="textcss">5</ion-text>
+        </ion-fab-button>
+      </ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content class="white">
+
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card  mode="ios" style="background-color: #ffffff;">
+    <ion-card-header>
+      <ion-card-title class="white">
+       Completed requests
+      </ion-card-title>
+      <ion-card-subtitle class="white">
+        <ion-fab-button class="ion-button-css">
+          <ion-text class="textcss">11</ion-text>
+        </ion-fab-button>
+      </ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content class="white">
+
+    </ion-card-content>
+  </ion-card>
+
+
+  <ion-card class="welcome-card">
+    <ion-card-header>
+      <ion-card-subtitle>Number of attended days per month</ion-card-subtitle>
+      <!-- <ion-card-title></ion-card-title> -->
+    </ion-card-header>
+    <ion-card-content>
+      <canvas #barChart></canvas>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card class="welcome-card" style="margin-top: 25px;">
+    <ion-card-header>
+      <ion-card-subtitle>Inspections</ion-card-subtitle>
+      <!-- <ion-card-title></ion-card-title> -->
+    </ion-card-header>
+    <ion-card-content>
+      <canvas #pieChart></canvas>
+    </ion-card-content>
+  </ion-card>
+
+
+</ion-content>

@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button menu="citizen-menu"></ion-menu-button>
+      <!-- <ion-back-button></ion-back-button> -->
+    </ion-buttons>
+    <ion-title>Request review</ion-title>
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content fullscreen="true">
+  <ion-item>
+    <ion-label position="floating" style="font-size: 18px;">Request Number<span style="color:red"> *</span></ion-label>
+    <ion-input placeholder="such as: 0025" clearInput value="" style="margin-top: 3%;"></ion-input>
+  </ion-item>
+  <ion-item lines="none">
+    <div slot="end">
+  <ion-button [routerLink]="['/citizen/request-timeline']" routerLinkActive="router-link-active" >
+    Search
+    <ion-icon slot="end" name="navigate-outline"></ion-icon>
+  </ion-button>
+</div>
+</ion-item>
+</ion-content>

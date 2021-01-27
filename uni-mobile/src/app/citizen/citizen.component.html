@@ -1,0 +1,69 @@
+<ion-split-pane contentId="ciizen-content">
+
+  <ion-menu contentId="ciizen-content" menuId="citizen-menu">
+
+    <!-- <ion-header>
+      <ion-toolbar>
+        <ion-title>Citizen Menu</ion-title>
+      </ion-toolbar>
+    </ion-header> -->
+
+    <ion-content>
+      <ion-list lines="none">
+
+        <ion-list-header class="menu-header">
+          <!-- <ion-icon class="logo-icon" name="logo-slack"></ion-icon> -->
+          <img style="width: 50px;" src="assets/images/qatar_logo.jpg">
+          <div class="logo-text"><span class="logo-letter">Q</span>atar University</div>
+        </ion-list-header>
+
+        <ion-menu-toggle autoHide="false" menu="citizen-menu">
+          <ion-item button [routerLink]="'/citizen/citizen-home'" routerLinkActive="selected" routerDirection="root" detail="false">
+            <ion-icon slot="start" name="albums-outline"></ion-icon>
+            <ion-label>Home</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+
+        <ion-menu-toggle autoHide="false" menu="citizen-menu">
+          <ion-item button [routerLink]="'/citizen/calendar'" routerLinkActive="selected" routerDirection="root" detail="false">
+            <ion-icon slot="start" name="calendar-outline"></ion-icon>
+            <ion-label>My Appointments</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+
+        <ion-menu-toggle autoHide="false" menu="citizen-menu">
+          <ion-item button [routerLink]="'/citizen/home'" routerLinkActive="selected" routerDirection="root" detail="false">
+            <ion-icon slot="start" name="document-attach-outline"></ion-icon>
+            <ion-label>Create A Request</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+
+        <ion-menu-toggle autoHide="false" menu="citizen-menu">
+          <ion-item button [routerLink]="'/citizen/request-review'" routerLinkActive="selected" routerDirection="root" detail="false">
+            <ion-icon slot="start" name="receipt-outline"></ion-icon>
+            <ion-label>Request review</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+
+        <ion-menu-toggle autoHide="false" menu="citizen-menu">
+          <ion-item button [routerLink]="'/citizen/grades'" routerLinkActive="selected" routerDirection="root" detail="false">
+            <ion-icon slot="start" name="copy-outline"></ion-icon>
+            <ion-label>Grades</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+
+        <ion-menu-toggle autoHide="false" menu="citizen-menu">
+          <ion-item button [routerLink]="'/citizen/municipality-circular'" routerLinkActive="selected" routerDirection="root" detail="false">
+            <ion-icon slot="start" name="albums-outline"></ion-icon>
+            <ion-label>Circulars</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+
+      </ion-list>
+
+    </ion-content>
+  </ion-menu>
+
+  <ion-router-outlet id="ciizen-content"></ion-router-outlet>
+
+</ion-split-pane>

@@ -1,0 +1,61 @@
+<ion-split-pane contentId="inspector-content" [disabled]="true">
+
+  <ion-menu contentId="inspector-content" menuId="inspector-menu">
+
+    <!-- <ion-header>
+      <ion-toolbar>
+        <ion-title>Citizen Menu</ion-title>
+      </ion-toolbar>
+    </ion-header> -->
+
+    <ion-content>
+      <ion-list lines="none">
+
+        <ion-list-header class="menu-header">
+          <ion-icon class="logo-icon" name="logo-slack"></ion-icon>
+          <div class="logo-text"><span class="logo-letter">M</span>unicipality</div>
+        </ion-list-header>
+
+        <ion-menu-toggle autoHide="false" menu="citizen-menu">
+          <ion-item button [routerLink]="'/inspector/home'" routerLinkActive="selected" routerDirection="root" detail="false">
+            <ion-icon slot="start" name="albums-outline"></ion-icon>
+            <ion-label>Home</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+
+        <ion-menu-toggle autoHide="false" menu="citizen-menu">
+          <ion-item button [routerLink]="'/inspector/calendar'" routerLinkActive="selected" routerDirection="root" detail="false">
+            <ion-icon slot="start" name="calendar-outline"></ion-icon>
+            <ion-label>My Schedule</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+
+        <ion-menu-toggle autoHide="false" menu="citizen-menu">
+          <ion-item button [routerLink]="'/inspector/dashboard'" routerLinkActive="selected" routerDirection="root" detail="false">
+            <ion-icon slot="start" name="bar-chart-outline"></ion-icon>
+            <ion-label>Dashboard</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+
+        <ion-menu-toggle autoHide="false" menu="citizen-menu">
+          <ion-item button [routerLink]="'/citizen/archive'" routerLinkActive="selected" routerDirection="root" detail="false">
+            <ion-icon slot="start" name="qr-code-outline"></ion-icon>
+            <ion-label>Qr Code</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+
+        <ion-menu-toggle autoHide="false" menu="citizen-menu">
+          <ion-item button [routerLink]="'/login'" routerLinkActive="selected" routerDirection="root" detail="false">
+            <ion-icon slot="start" name="log-out-outline"></ion-icon>
+            <ion-label>Logout</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+
+      </ion-list>
+
+    </ion-content>
+  </ion-menu>
+
+  <ion-router-outlet id="inspector-content"></ion-router-outlet>
+
+</ion-split-pane>

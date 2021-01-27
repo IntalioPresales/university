@@ -1,0 +1,135 @@
+.session-track-ionic {
+  color: var(--ion-color-primary);
+}
+
+.session-track-angular {
+  color: var(--ion-color-angular);
+}
+
+.session-track-communication {
+  color: var(--ion-color-communication);
+}
+
+.session-track-tooling {
+  color: var(--ion-color-tooling);
+}
+
+.session-track-services {
+  color: var(--ion-color-services);
+}
+
+.session-track-design {
+  color: var(--ion-color-design);
+}
+
+.session-track-workshop {
+  color: var(--ion-color-workshop);
+}
+
+.session-track-food {
+  color: var(--ion-color-food);
+}
+
+.session-track-documentation {
+  color: var(--ion-color-documentation);
+}
+
+.session-track-navigation {
+  color: var(--ion-color-navigation);
+}
+
+/* Favorite Icon
+ * --------------------------------------------------------
+ */
+
+.show-favorite {
+  position: relative;
+}
+
+.icon-heart-empty,
+.icon-heart {
+  --border-radius: 50%;
+  --padding-start: 0;
+  --padding-end: 0;
+
+  position: absolute;
+
+  top: 5px;
+  right: 5px;
+
+  width: 48px;
+  height: 48px;
+
+  font-size: 16px;
+
+  transition: transform 300ms ease;
+}
+
+.icon-heart-empty {
+  transform: scale(1);
+}
+
+.icon-heart {
+  transform: scale(0);
+}
+
+.show-favorite .icon-heart {
+  transform: scale(1);
+}
+
+.show-favorite .icon-heart-empty {
+  transform: scale(0);
+}
+
+h1 {
+  margin: 0;
+}
+.mr{
+  margin-right: 20px;
+}
+.mr-5{
+  margin-right: 5px;
+}
+ion-label{
+  font-weight: bold;
+  white-space: inherit !important;
+}
+$categories: (
+  ionic: var(--ion-color-primary),
+  angular: #ac282b,
+  communication: #8e8d93,
+  tooling: #fe4c52,
+  services: #fd8b2d,
+  design: #fed035,
+  workshop: #69bb7b,
+  food: #3bc7c4,
+  documentation: #b16be3,
+  navigation: #6600cc
+);
+
+@each $track, $value in map-remove($categories) {
+  ion-item-sliding[track='#{$track}'] ion-label {
+    border-left: 2px solid $value;
+    padding-left: 10px;
+  }
+}
+ion-slides {
+  --bullet-background: #eee;
+  --bullet-background-active: #000;
+
+  ion-slide {
+    height: 400px !important;
+
+    &:nth-child(1) {
+      background-color: white;
+    }
+
+    &:nth-child(2) {
+      background-color: white;
+    }
+
+    &:nth-child(3) {
+      background-color: white;
+    }
+  }
+}

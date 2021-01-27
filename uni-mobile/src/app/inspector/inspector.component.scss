@@ -1,0 +1,56 @@
+.my-custom-menu {
+  width: 500px;
+}
+
+.menu-header {
+  margin-bottom: 20px;
+}
+
+ion-item.selected {
+  // background: #518fae;
+  background-color: rgba(135, 222, 195, 0.17);
+  border-radius: 0px 52px 49px 0px;
+  margin-right: 12px;
+
+  ion-label {
+    color: #fff;
+    color: #00AE8D;
+  }
+
+  ion-icon {
+    color: #fff;
+    color: #00AE8D;
+  }
+
+  .item-native {
+    background-color: unset;
+  }
+}
+
+
+.logo-text {
+  color: #518fae;
+  font-family: "Fugaz One", cursive;
+  font-family: "Fugaz One";
+  font-size: 24px;
+  font-weight: 400;
+
+  font-size: 26px;
+
+
+  .logo-letter {
+    font-size: 30px;
+    font-weight: 700;
+    color: #00AE8D;
+
+
+    font-size: 31px;
+    font-weight: 700;
+  }
+}
+
+.logo-icon {
+  font-size: 44px;
+  color: #00AE8D;
+  margin-right: 6px;
+}

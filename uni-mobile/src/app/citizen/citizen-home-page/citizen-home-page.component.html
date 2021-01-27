@@ -1,0 +1,180 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button menu="citizen-menu"></ion-menu-button>
+      <!-- <ion-back-button></ion-back-button> -->
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button>
+        <span *ngIf="!ios">
+          <ion-icon slot="icon-only" name="log-out" [routerLink]="['/login']" routerLinkActive="router-link-active"></ion-icon>
+        </span>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-title>Homepage</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="">
+
+  <ion-slides>
+    <ion-slide [routerLink]="['/citizen/municipality-circular']">
+      <img style="width: 100%; height: 255px;object-fit: cover;" src="assets/images/img1.jpg">
+      <div class="text">Plant 800 tree plants in Campus</div>
+    </ion-slide>
+    <ion-slide [routerLink]="['/citizen/municipality-circular']">
+      <img style="width: 100%; height: 255px;object-fit: cover;" src="assets/images/img2.jpg">
+      <div class="text">Meeting of the Unversity Council</div>
+    </ion-slide>
+    <ion-slide [routerLink]="['/citizen/municipality-circular']">
+      <img style="width: 100%; height: 255px;object-fit: cover;" src="assets/images/img3.jpg">
+      <div class="text">Conference on Solid Waste Management</div>
+    </ion-slide>
+  </ion-slides>
+
+  <div class="container">
+
+    <div class="card-row">
+
+      <div class="chart">
+        <div class="content">
+          <div class="icon-box">
+            <svg width="76" height="76">
+              <g transform="translate(38,38)">
+                <path class="d3-progress-background" d="M0,38A38,38 0 1,1 0,-38A38,38 0 1,1 0,38M0,36A36,36 0 1,0 0,-36A36,36 0 1,0 0,36Z" style="fill: rgb(238, 238, 238);"></path>
+                <path class="d3-progress-foreground" filter="url(#blur)" d="M2.326828918379971e-15,-38A38,38 0 0,1 36.14014761921584,-11.742645786247992L34.23803458662553,-11.124611797498098A36,36 0 0,0 2.204364238465236e-15,-36Z" style="fill: rgb(255, 152, 0); stroke: rgb(255, 152, 0);"></path>
+                <path class="d3-progress-front" d="M2.326828918379971e-15,-38A38,38 0 0,1 36.14014761921584,-11.742645786247992L34.23803458662553,-11.124611797498098A36,36 0 0,0 2.204364238465236e-15,-36Z" style="fill: rgb(255, 152, 0); fill-opacity: 1;"></path>
+              </g>
+            </svg>
+            <ion-icon class="icon-hour-glass3 text-orange counter-icon" name="hourglass-outline"></ion-icon>
+          </div>
+
+          <h4 class="text-orange">20%</h4>
+          <div class="desc">Pending Requests</div>
+          <div class="counter">8</div>
+        </div>
+      </div>
+
+      <div class="chart">
+        <div class="content">
+          <div class="icon-box">
+            <svg width="76" height="76">
+              <g transform="translate(38,38)">
+                <path class="d3-progress-background" d="M0,38A38,38 0 1,1 0,-38A38,38 0 1,1 0,38M0,36A36,36 0 1,0 0,-36A36,36 0 1,0 0,36Z" style="fill: rgb(238, 238, 238);"></path>
+                <path class="d3-progress-foreground" filter="url(#blur)" d="M2.326828918379971e-15,-38A38,38 0 1,1 -38,-9.659868200905434e-14L-36,-9.151454085068306e-14A36,36 0 1,0 2.204364238465236e-15,-36Z" style="fill: rgb(92, 107, 192); stroke: rgb(92, 107, 192);"></path>
+                <path class="d3-progress-front" d="M2.326828918379971e-15,-38A38,38 0 1,1 -38,-9.659868200905434e-14L-36,-9.151454085068306e-14A36,36 0 1,0 2.204364238465236e-15,-36Z" style="fill: rgb(92, 107, 192); fill-opacity: 1;"></path>
+              </g>
+            </svg>
+            <ion-icon class="icon-trophy3 text-indigo-400 counter-icon" name="checkmark-done-outline"></ion-icon>
+          </div>
+          <h4 class="text-indigo-400">50%</h4>
+          <div class="desc">Completed Requests</div>
+          <div class="counter">30</div>
+        </div>
+      </div>
+
+
+    </div>
+
+    <div class="card-row" style="padding-top: 5px;">
+
+      <div class="chart">
+        <div class="content">
+          <div class="icon-box">
+            <svg width="76" height="76">
+              <g transform="translate(38,38)">
+                <path class="d3-progress-background" d="M0,38A38,38 0 1,1 0,-38A38,38 0 1,1 0,38M0,36A36,36 0 1,0 0,-36A36,36 0 1,0 0,36Z" style="fill: rgb(238, 238, 238);"></path>
+                <path class="d3-progress-foreground" filter="url(#blur)" d="M2.326828918379971e-15,-38A38,38 0 1,1 -20.361418209201748,-32.084461169076654L-19.28976461924376,-30.395805318072618A36,36 0 1,0 2.204364238465236e-15,-36Z" style="fill: rgb(240, 98, 146); stroke: rgb(240, 98, 146);">
+                </path>
+                <path class="d3-progress-front" d="M2.326828918379971e-15,-38A38,38 0 1,1 -20.361418209201748,-32.084461169076654L-19.28976461924376,-30.395805318072618A36,36 0 1,0 2.204364238465236e-15,-36Z" style="fill: rgb(240, 98, 146); fill-opacity: 1;"></path>
+              </g>
+            </svg>
+            <ion-icon class="icon-hour-glass3 text-pink-400 counter-icon" name="hourglass-outline"></ion-icon>
+          </div>
+
+          <h4 class="text-pink-400">91%</h4>
+          <div class="desc">Satisfaction </div>
+          <div class="counter">91%</div>
+        </div>
+      </div>
+
+      <div class="chart">
+        <div class="content">
+          <div class="icon-box">
+            <svg width="76" height="76">
+              <g transform="translate(38,38)">
+                <path class="d3-progress-background" d="M0,38A38,38 0 1,1 0,-38A38,38 0 1,1 0,38M0,36A36,36 0 1,0 0,-36A36,36 0 1,0 0,36Z" style="fill: rgb(238, 238, 238);"></path>
+                <path class="d3-progress-foreground" filter="url(#blur)" d="M2.326828918379971e-15,-38A38,38 0 0,1 11.742645786248003,-36.14014761921583L11.124611797498108,-34.238034586625524A36,36 0 0,0 2.204364238465236e-15,-36Z" style="fill: rgb(119, 119, 119); stroke: rgb(119, 119, 119);">
+                </path>
+                <path class="d3-progress-front" d="M2.326828918379971e-15,-38A38,38 0 0,1 11.742645786248003,-36.14014761921583L11.124611797498108,-34.238034586625524A36,36 0 0,0 2.204364238465236e-15,-36Z" style="fill: rgb(119, 119, 119); fill-opacity: 1;"></path>
+              </g>
+            </svg>
+            <ion-icon class="icon-trophy3 counter-icon" name="checkmark-done-outline"></ion-icon>
+          </div>
+          <h4 class="">5%</h4>
+          <div class="desc">Rejected Requests</div>
+          <div class="counter">2</div>
+        </div>
+      </div>
+
+
+    </div>
+
+  </div>
+
+  <div class="requests-list">
+    <div class="requests-header">
+      <h2 style="margin-right: 5px;">
+        <ion-icon name="briefcase-outline"></ion-icon>
+      </h2>
+
+      <h3>Pending Requests</h3>
+    </div>
+
+    <!-- CARD -->
+    <div class="e-card" [routerLink]="['/citizen/request-timeline']">
+      <div class="e-right">
+        <div class="e-content">
+          <div class="title">Certificate</div>
+          <div class="meta-data">
+            <div class="flex">
+              <ion-icon class="icon" name="timer-outline"></ion-icon>
+              <span>Jan 28, 2020</span>
+            </div>
+            <div class="flex">
+              <ion-icon class="icon" name="caret-forward-outline"></ion-icon>
+              <span>Dean's signature</span>
+            </div>
+          </div>
+        </div>
+        <ion-icon class="e-icon" name="chevron-forward-outline"></ion-icon>
+      </div>
+    </div>
+    <!-- /CARD -->
+
+    <!-- CARD -->
+    <div class="e-card" [routerLink]="['/citizen/request-timeline']">
+      <div class="e-right">
+        <div class="e-content">
+          <div class="title">Student housing</div>
+          <div class="meta-data">
+            <div class="flex">
+              <ion-icon class="icon" name="timer-outline"></ion-icon>
+              <span>Jan 28, 2020</span>
+            </div>
+            <div class="flex">
+              <ion-icon class="icon" name="caret-forward-outline"></ion-icon>
+              <span>Administration</span>
+            </div>
+          </div>
+        </div>
+        <ion-icon class="e-icon" name="chevron-forward-outline"></ion-icon>
+      </div>
+    </div>
+    <!-- /CARD -->
+
+  </div>
+
+
+</ion-content>

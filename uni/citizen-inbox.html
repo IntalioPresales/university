@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Digital Student Workspace</title>
+
+	<!-- Global stylesheets -->
+	<link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet" type="text/css">
+	<link href="assets/css/icons/icomoon/styles.css" rel="stylesheet" type="text/css">
+	<link href="assets/css/bootstrap.css" rel="stylesheet" type="text/css">
+	<link href="assets/css/core.css" rel="stylesheet" type="text/css">
+	<link href="assets/css/components.css" rel="stylesheet" type="text/css">
+	<link href="assets/css/colors.css" rel="stylesheet" type="text/css">
+	<link href="assets/css/card.css" rel="stylesheet" type="text/css">
+	<link href="https://fonts.googleapis.com/css?family=Cairo&display=swap" rel="stylesheet">
+
+	<link href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.min.css" rel="stylesheet" type="text/css">
+	<link href="https://unpkg.com/filepond/dist/filepond.min.css" rel="stylesheet" type="text/css">
+	<!-- /global stylesheets -->
+
+	<!-- Core JS files -->
+	<script type="text/javascript" src="assets/js/plugins/loaders/pace.min.js"></script>
+	<script type="text/javascript" src="assets/js/core/libraries/jquery.min.js"></script>
+	<script type="text/javascript" src="assets/js/core/libraries/bootstrap.min.js"></script>
+	<script type="text/javascript" src="assets/js/plugins/loaders/blockui.min.js"></script>
+	<script type="text/javascript" src="assets/js/plugins/ui/nicescroll.min.js"></script>
+	<script type="text/javascript" src="assets/js/plugins/ui/drilldown.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+
+	<!-- /core JS files -->
+
+	<!-- Theme JS files -->
+	<script type="text/javascript" src="assets/js/plugins/forms/selects/select2.min.js"></script>
+	<script type="text/javascript" src="assets/js/plugins/forms/styling/uniform.min.js"></script>
+	<script type="text/javascript" src="assets/js/core/libraries/jasny_bootstrap.min.js"></script>
+	<script type="text/javascript" src="assets/js/pages/mail_list.js"></script>
+	<!-- /theme JS files -->
+	<style>
+		.table-inbox-preview span {
+			font-weight: 600;
+			color: #5e8bb5;
+		}
+
+		.table-inbox-attachment:nth-child(6) {
+			width: 100px;
+		}
+	</style>
+
+</head>
+
+<body>
+
+	<!-- Main navbar -->
+	<div class="navbar navbar-inverse">
+		<div class="navbar-header">
+			<a class="navbar-brand" href="index.html">
+				<!-- <img src="assets/images/logo_light.png" alt=""> -->
+				<i class="icon-shutter mr-5"></i>
+				<strong style="font-size: 16px;">المنصة الإلكترونية لخدمات الجامعة</strong>
+			</a>
+
+			<ul class="nav navbar-nav pull-right visible-xs-block">
+				<li><a data-toggle="collapse" data-target="#navbar-mobile"><i class="icon-tree5"></i></a></li>
+			</ul>
+		</div>
+
+		<div class="navbar-collapse collapse" id="navbar-mobile">
+			<ul class="nav navbar-nav">
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+						<i class="icon-git-compare"></i>
+						<span class="visible-xs-inline-block position-right">Git updates</span>
+						<span class="badge bg-warning-400">9</span>
+					</a>
+
+					<div class="dropdown-menu dropdown-content">
+						<div class="dropdown-content-heading">
+							Git updates
+							<ul class="icons-list">
+								<li><a href="#"><i class="icon-sync"></i></a></li>
+							</ul>
+						</div>
+
+						<ul class="media-list dropdown-content-body width-350">
+							<li class="media">
+								<div class="media-left">
+									<a href="#" class="btn border-primary text-primary btn-flat btn-rounded btn-icon btn-sm"><i class="icon-git-pull-request"></i></a>
+								</div>
+
+								<div class="media-body">
+									Drop the IE <a href="#">specific hacks</a> for temporal inputs
+									<div class="media-annotation">4 minutes ago</div>
+								</div>
+							</li>
+
+							<li class="media">
+								<div class="media-left">
+									<a href="#" class="btn border-warning text-warning btn-flat btn-rounded btn-icon btn-sm"><i class="icon-git-commit"></i></a>
+								</div>
+
+								<div class="media-body">
+									Add full font overrides for popovers and tooltips
+									<div class="media-annotation">36 minutes ago</div>
+								</div>
+							</li>
+
+							<li class="media">
+								<div class="media-left">
+									<a href="#" class="btn border-info text-info btn-flat btn-rounded btn-icon btn-sm"><i class="icon-git-branch"></i></a>
+								</div>
+
+								<div class="media-body">
+									<a href="#">Chris Arney</a> created a new <span class="text-semibold">Design</span> branch
+									<div class="media-annotation">2 hours ago</div>
+								</div>
+							</li>
+
+							<li class="media">
+								<div class="media-left">
+									<a href="#" class="btn border-success text-success btn-flat btn-rounded btn-icon btn-sm"><i class="icon-git-merge"></i></a>
+								</div>
+
+								<div class="media-body">
+									<a href="#">Eugene Kopyov</a> merged <span class="text-semibold">Master</span> and <span class="text-semibold">Dev</span> branches
+									<div class="media-annotation">Dec 18, 18:36</div>
+								</div>
+							</li>
+
+							<li class="media">
+								<div class="media-left">
+									<a href="#" class="btn border-primary text-primary btn-flat btn-rounded btn-icon btn-sm"><i class="icon-git-pull-request"></i></a>
+								</div>
+
+								<div class="media-body">
+									Have Carousel ignore keyboard events
+									<div class="media-annotation">Dec 12, 05:46</div>
+								</div>
+							</li>
+						</ul>
+
+						<div class="dropdown-content-footer">
+							<a href="#" data-popup="tooltip" title="All activity"><i class="icon-menu display-block"></i></a>
+						</div>
+					</div>
+				</li>
+
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+						<i class="icon-people"></i>
+						<span class="visible-xs-inline-block position-right">Users</span>
+					</a>
+
+					<div class="dropdown-menu dropdown-content">
+						<div class="dropdown-content-heading">
+							Users online
+							<ul class="icons-list">
+								<li><a href="#"><i class="icon-gear"></i></a></li>
+							</ul>
+						</div>
+
+						<ul class="media-list dropdown-content-body width-300">
+							<li class="media">
+								<div class="media-left"><img src="assets/images/placeholder.jpg" class="img-circle img-sm" alt=""></div>
+								<div class="media-body">
+									<a href="#" class="media-heading text-semibold">Jordana Ansley</a>
+									<span class="display-block text-muted text-size-small">Lead web developer</span>
+								</div>
+								<div class="media-right media-middle"><span class="status-mark border-success"></span></div>
+							</li>
+
+							<li class="media">
+								<div class="media-left"><img src="assets/images/placeholder.jpg" class="img-circle img-sm" alt=""></div>
+								<div class="media-body">
+									<a href="#" class="media-heading text-semibold">Will Brason</a>
+									<span class="display-block text-muted text-size-small">Marketing manager</span>
+								</div>
+								<div class="media-right media-middle"><span class="status-mark border-danger"></span></div>
+							</li>
+
+							<li class="media">
+								<div class="media-left"><img src="assets/images/placeholder.jpg" class="img-circle img-sm" alt=""></div>
+								<div class="media-body">
+									<a href="#" class="media-heading text-semibold">Hanna Walden</a>
+									<span class="display-block text-muted text-size-small">Project manager</span>
+								</div>
+								<div class="media-right media-middle"><span class="status-mark border-success"></span></div>
+							</li>
+
+							<li class="media">
+								<div class="media-left"><img src="assets/images/placeholder.jpg" class="img-circle img-sm" alt=""></div>
+								<div class="media-body">
+									<a href="#" class="media-heading text-semibold">Dori Laperriere</a>
+									<span class="display-block text-muted text-size-small">Business developer</span>
+								</div>
+								<div class="media-right media-middle"><span class="status-mark border-warning-300"></span></div>
+							</li>
+
+							<li class="media">
+								<div class="media-left"><img src="assets/images/placeholder.jpg" class="img-circle img-sm" alt=""></div>
+								<div class="media-body">
+									<a href="#" class="media-heading text-semibold">Vanessa Aurelius</a>
+									<span class="display-block text-muted text-size-small">UX expert</span>
+								</div>
+								<div class="media-right media-middle"><span class="status-mark border-grey-400"></span></div>
+							</li>
+						</ul>
+
+						<div class="dropdown-content-footer">
+							<a href="#" data-popup="tooltip" title="All users"><i class="icon-menu display-block"></i></a>
+						</div>
+					</div>
+				</li>
+			</ul>
+
+			<p class="navbar-text"><span class="label bg-success-400">متصل</span></p>
+
+			<ul class="nav navbar-nav navbar-right">
+				<li class="dropdown language-switch">
+					<a class="dropdown-toggle" data-toggle="dropdown">
+						<img src="assets/images/flags/lb.png" class="position-left" alt="">
+						عربي
+						<span class="caret"></span>
+					</a>
+
+					<ul class="dropdown-menu">
+						<li><a class="deutsch"><img src="assets/images/flags/de.png" alt=""> Deutsch</a></li>
+						<li><a class="ukrainian"><img src="assets/images/flags/ua.png" alt=""> Українська</a></li>
+						<li><a class="english"><img src="assets/images/flags/gb.png" alt=""> English</a></li>
+						<li><a class="espana"><img src="assets/images/flags/es.png" alt=""> España</a></li>
+						<li><a class="russian"><img src="assets/images/flags/ru.png" alt=""> Русский</a></li>
+					</ul>
+				</li>
+
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+						<i class="icon-bubbles4"></i>
+						<span class="visible-xs-inline-block position-right">Messages</span>
+						<span class="badge bg-warning-400">2</span>
+					</a>
+
+					<div class="dropdown-menu dropdown-content width-350">
+						<div class="dropdown-content-heading">
+							Messages
+							<ul class="icons-list">
+								<li><a href="#"><i class="icon-compose"></i></a></li>
+							</ul>
+						</div>
+
+						<ul class="media-list dropdown-content-body">
+							<li class="media">
+								<div class="media-left">
+									<img src="assets/images/placeholder.jpg" class="img-circle img-sm" alt="">
+									<span class="badge bg-danger-400 media-badge">5</span>
+								</div>
+
+								<div class="media-body">
+									<a href="#" class="media-heading">
+										<span class="text-semibold">James Alexander</span>
+										<span class="media-annotation pull-right">04:58</span>
+									</a>
+
+									<span class="text-muted">who knows, maybe that would be the best thing for me...</span>
+								</div>
+							</li>
+
+							<li class="media">
+								<div class="media-left">
+									<img src="assets/images/placeholder.jpg" class="img-circle img-sm" alt="">
+									<span class="badge bg-danger-400 media-badge">4</span>
+								</div>
+
+								<div class="media-body">
+									<a href="#" class="media-heading">
+										<span class="text-semibold">Margo Baker</span>
+										<span class="media-annotation pull-right">12:16</span>
+									</a>
+
+									<span class="text-muted">That was something he was unable to do because...</span>
+								</div>
+							</li>
+
+							<li class="media">
+								<div class="media-left"><img src="assets/images/placeholder.jpg" class="img-circle img-sm" alt=""></div>
+								<div class="media-body">
+									<a href="#" class="media-heading">
+										<span class="text-semibold">Jeremy Victorino</span>
+										<span class="media-annotation pull-right">22:48</span>
+									</a>
+
+									<span class="text-muted">But that would be extremely strained and suspicious...</span>
+								</div>
+							</li>
+
+							<li class="media">
+								<div class="media-left"><img src="assets/images/placeholder.jpg" class="img-circle img-sm" alt=""></div>
+								<div class="media-body">
+									<a href="#" class="media-heading">
+										<span class="text-semibold">Beatrix Diaz</span>
+										<span class="media-annotation pull-right">Tue</span>
+									</a>
+
+									<span class="text-muted">What a strenuous career it is that I've chosen...</span>
+								</div>
+							</li>
+
+							<li class="media">
+								<div class="media-left"><img src="assets/images/placeholder.jpg" class="img-circle img-sm" alt=""></div>
+								<div class="media-body">
+									<a href="#" class="media-heading">
+										<span class="text-semibold">Richard Vango</span>
+										<span class="media-annotation pull-right">Mon</span>
+									</a>
+
+									<span class="text-muted">Other travelling salesmen live a life of luxury...</span>
+								</div>
+							</li>
+						</ul>
+
+						<div class="dropdown-content-footer">
+							<a href="#" data-popup="tooltip" title="All messages"><i class="icon-menu display-block"></i></a>
+						</div>
+					</div>
+				</li>
+
+				<li class="dropdown dropdown-user">
+					<a class="dropdown-toggle" data-toggle="dropdown">
+						<img src="assets/images/mazen.png" alt="">
+						<span>مازن فرح</span>
+						<i class="caret"></i>
+					</a>
+
+					<ul class="dropdown-menu dropdown-menu-right">
+						<li><a href="#"><i class="icon-user-plus"></i> My profile</a></li>
+						<li><a href="#"><i class="icon-coins"></i> My balance</a></li>
+						<li><a href="#"><span class="badge badge-warning pull-right">58</span> <i class="icon-comment-discussion"></i> Messages</a></li>
+						<li class="divider"></li>
+						<li><a href="#"><i class="icon-cog5"></i> Account settings</a></li>
+						<li><a href="#"><i class="icon-switch2"></i> Logout</a></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<!-- /main navbar -->
+
+
+	<!-- Second navbar -->
+	<div class="navbar navbar-default" id="navbar-second">
+		<ul class="nav navbar-nav no-border visible-xs-block">
+			<li><a class="text-center collapsed" data-toggle="collapse" data-target="#navbar-second-toggle"><i class="icon-menu7"></i></a></li>
+		</ul>
+
+		<div class="navbar-collapse collapse" id="navbar-second-toggle">
+			<ul class="nav navbar-nav">
+				<li><a href="citizen-home.html"><i class="icon-display4 position-left"></i> الصفحة الرئيسية</a></li>
+				<li><a href="citizen-new-request.html"><i class="icon-display4 position-left"></i>إنشاء طلب</a></li>
+				<li><a href="citizen-grades.html"><i class="icon-display4 position-left"></i>لائحة العلامات</a></li>
+				<li><a href="citizen-calendar.html"><i class="icon-display4 position-left"></i>مواعيد طلبات</a></li>
+				<li><a href="citizen-archive.html"><i class="icon-display4 position-left"></i>ارشيف الطلبات</a></li>
+				<li><a href="citizen-wallet.html"><i class="icon-display4 position-left"></i>المحفظة الالكترونية</a></li>
+				<li><a href="citizen-inbox.html"><i class="icon-display4 position-left"></i>صندوق الوارد</a></li>
+			</ul>
+
+			<ul class="nav navbar-nav navbar-right">
+				<!-- <li>
+						<a href="changelog.html">
+							<i class="icon-history position-left"></i>
+							Changelog
+							<span class="label label-inline position-right bg-success-400">1.6</span>
+						</a>
+					</li> -->
+
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+						<i class="icon-cog3"></i>
+						<span class="visible-xs-inline-block position-right">Share</span>
+						<span class="caret"></span>
+					</a>
+
+					<ul class="dropdown-menu dropdown-menu-right">
+						<li><a href="#"><i class="icon-user-lock"></i>أمن الحساب</a></li>
+						<li><a href="#"><i class="icon-statistics"></i> تحليلات</a></li>
+						<li><a href="#"><i class="icon-accessibility"></i> إمكانية الوصول</a></li>
+						<li class="divider"></li>
+						<li><a href="#"><i class="icon-gear"></i> جميع الإعدادات</a></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<!-- /second navbar -->
+
+
+	<!-- Page header -->
+	<div class="page-header">
+		<div class="page-header-content">
+			<div class="page-title">
+				<h4><i class="icon-arrow-right6 position-left"></i> <span class="text-semibold">إنشاء طلب</span> </h4>
+
+				<ul class="breadcrumb breadcrumb-caret position-right">
+					<li>صندوق الوارد</li>
+					<li class="active">معرض</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- /page header -->
+
+
+	<!-- Page container -->
+	<div class="page-container">
+
+		<!-- Page content -->
+		<div class="page-content">
+
+			<!-- Main sidebar -->
+			<div class="sidebar sidebar-main sidebar-default sidebar-separate">
+				<div class="sidebar-content">
+
+					<!-- Actions -->
+					<div class="sidebar-category">
+						<div class="category-title">
+							<span>أجراءات</span>
+							<ul class="icons-list">
+								<li><a href="javascrip:void(0)" data-action="collapse"></a></li>
+							</ul>
+						</div>
+
+						<div class="category-content">
+							<a href="citizen-new-request.html" class="btn bg-indigo-400 btn-block">انشاء طلب</a>
+						</div>
+					</div>
+					<!-- /actions -->
+
+
+					<!-- Sub navigation -->
+					<div class="sidebar-category">
+						<div class="category-title">
+							<span>التنقل</span>
+							<ul class="icons-list">
+								<li><a href="javascript:void(0)" data-action="collapse"></a></li>
+							</ul>
+						</div>
+
+						<div class="category-content no-padding">
+							<ul class="navigation navigation-alt navigation-accordion no-padding-bottom">
+								<li class="navigation-header">المجلدات</li>
+								<li class="active"><a href="#"><i class="icon-drawer-in"></i> صندوق الوارد <span class="badge badge-success">32</span></a></li>
+								<li><a href="#"><i class="icon-drawer3"></i> صندوق المراجعات</a></li>
+								<li><a href="#"><i class="icon-stars"></i> مفضل</a></li>
+								<li class="navigation-divider"></li>
+								<li><a href="#"><i class="icon-spam"></i> منتهي الصلاحية <span class="badge badge-danger">99+</span></a></li>
+								<li><a href="#"><i class="icon-bin"></i> تلف</a></li>
+								<li class="navigation-header">ملصق</li>
+								<li><a href="#"><span class="status-mark border-primary position-left"></span> شهادة التخرج</a></li>
+								<li><a href="#"><span class="status-mark border-success position-left"></span> الملف الأكاديمي</a></li>
+								<li><a href="#"><span class="status-mark border-indigo position-left"></span> اعتذار عن الدراسة</a></li>
+								<li><a href="#"><span class="status-mark border-danger position-left"></span> السكن الجامعي</a></li>
+							</ul>
+						</div>
+					</div>
+					<!-- /sub navigation -->
+
+				</div>
+			</div>
+			<!-- /main sidebar -->
+
+			<!-- Main content -->
+			<div class="content-wrapper">
+
+
+				<!-- Single line -->
+				<div class="panel panel-white">
+					<div class="panel-heading">
+						<h6 class="panel-title">صندوق الوارد</h6>
+
+						<div class="heading-elements not-collapsible">
+							<span class="label bg-blue heading-text">3 جديد اليوم</span>
+						</div>
+					</div>
+
+					<div class="panel-toolbar panel-toolbar-inbox">
+						<div class="navbar navbar-default">
+							<ul class="nav navbar-nav visible-xs-block no-border">
+								<li>
+									<a class="text-center collapsed" data-toggle="collapse" data-target="#inbox-toolbar-toggle-single">
+										<i class="icon-circle-down2"></i>
+									</a>
+								</li>
+							</ul>
+
+							<div class="navbar-collapse collapse" id="inbox-toolbar-toggle-single">
+								<div class="btn-group navbar-btn">
+									<button type="button" class="btn btn-default btn-icon btn-checkbox-all">
+										<input type="checkbox" class="styled">
+									</button>
+
+									<button type="button" class="btn btn-default btn-icon dropdown-toggle" data-toggle="dropdown">
+										<span class="caret"></span>
+									</button>
+
+									<ul class="dropdown-menu">
+										<li><a href="#">اختر الكل</a></li>
+										<li><a href="#">حدد قراءة</a></li>
+										<li><a href="#">حدد غير مقروء</a></li>
+										<li class="divider"></li>
+										<li><a href="#">أزال التحديدات</a></li>
+									</ul>
+								</div>
+
+								<div class="btn-group navbar-btn">
+									<button type="button" class="btn btn-default"><i class="icon-bin"></i> <span class="hidden-xs position-right">مسح</span></button>
+									<button type="button" class="btn btn-default"><i class="icon-spam"></i> <span class="hidden-xs position-right">نقل</span></button>
+								</div>
+
+								<div class="navbar-right">
+									<p class="navbar-text"><span class="text-semibold">1-50</span> of <span class="text-semibold">528</span></p>
+
+									<div class="btn-group navbar-left navbar-btn">
+										<button type="button" class="btn btn-default btn-icon disabled"><i class="icon-arrow-right13"></i></button>
+										<button type="button" class="btn btn-default btn-icon"><i class="icon-arrow-left12"></i></button>
+									</div>
+
+									<div class="btn-group navbar-btn">
+										<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+											<i class="icon-cog3"></i>
+											<span class="caret"></span>
+										</button>
+
+										<ul class="dropdown-menu dropdown-menu-right">
+											<li><a href="#">اجراء</a></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="table-responsive">
+						<table class="table table-inbox">
+							<tbody data-link="row" class="rowlink">
+
+								<tr class="unread">
+									<td class="table-inbox-checkbox rowlink-skip">
+										<input type="checkbox" class="styled">
+									</td>
+									<td class="table-inbox-star rowlink-skip">
+										<a href="javascript:void(0)">
+											<i class="icon-star-full2 text-warning-300"></i>
+										</a>
+									</td>
+									<td class="table-inbox-image">
+										<i class="icon-file-text2 text-success-400 icon-2x no-edge-top mt-5"></i>
+									</td>
+									<td class="table-inbox-name">
+										<a href="#">
+											<div class="letter-icon-title text-default">السكن الجامعي</div>
+										</a>
+									</td>
+									<td class="table-inbox-message">
+										<span class="table-inbox-subject"></span>
+										<span class="table-inbox-preview"><span>تحميل</span>: 1 من اصل 3 |<span> صالح لغاية</span> : 2021-01-02</span>
+									</td>
+									<td class="table-inbox-attachment">
+										<i class="icon-download mr-10"></i>
+										<i class="icon-book"></i>
+									</td>
+									<td class="table-inbox-time">
+										8:37 pm
+									</td>
+								</tr>
+
+								<tr>
+									<td class="table-inbox-checkbox rowlink-skip">
+										<input type="checkbox" class="styled">
+									</td>
+									<td class="table-inbox-star rowlink-skip">
+										<a href="javascript:void(0)">
+											<i class="icon-star-full2 text-warning-300"></i>
+										</a>
+									</td>
+									<td class="table-inbox-image">
+										<i class="icon-file-text2 text-success-400 icon-2x no-edge-top mt-5"></i>
+									</td>
+									<td class="table-inbox-name">
+										<a href="#">
+											<div class="letter-icon-title text-default">اعتذار عن الدراسة</div>
+										</a>
+									</td>
+									<td class="table-inbox-message">
+										<span class="table-inbox-subject">لقد تم الموافقة على الطلب&nbsp;-&nbsp;</span>
+									</td>
+									<td class="table-inbox-attachment">
+										<i class="icon-download mr-10"></i>
+										<i class="icon-book"></i>
+									</td>
+									<td class="table-inbox-time">
+										4:28 am
+									</td>
+								</tr>
+
+								<tr>
+									<td class="table-inbox-checkbox rowlink-skip">
+										<input type="checkbox" class="styled">
+									</td>
+									<td class="table-inbox-star rowlink-skip">
+										<a href="javascript:void(0)">
+											<i class="icon-star-empty3 text-muted"></i>
+										</a>
+									</td>
+									<td class="table-inbox-image">
+										<i class="icon-file-text2 text-success-400 icon-2x no-edge-top mt-5"></i>
+									</td>
+									<td class="table-inbox-name">
+										<a href="#">
+											<div class="letter-icon-title text-default">دراسات العليا</div>
+										</a>
+									</td>
+									<td class="table-inbox-message">
+										<span class="table-inbox-subject">يرجى مراجعة الادارة لاستلام الطلب &nbsp;-&nbsp;</span>
+										<span class="table-inbox-preview"></span>
+									</td>
+									<td class="table-inbox-attachment">
+										<i class="icon-download mr-10"></i>
+										<i class="icon-book"></i>
+									</td>
+									<td class="table-inbox-time">
+										Dec 5
+									</td>
+								</tr>
+
+								<tr>
+									<td class="table-inbox-checkbox rowlink-skip">
+										<input type="checkbox" class="styled">
+									</td>
+									<td class="table-inbox-star rowlink-skip">
+										<a href="javascript:void(0)">
+											<i class="icon-star-empty3 text-muted"></i>
+										</a>
+									</td>
+									<td class="table-inbox-image">
+										<i class="icon-file-text2 text-success-400 icon-2x no-edge-top mt-5"></i>
+									</td>
+									<td class="table-inbox-name">
+										<a href="#">
+											<div class="letter-icon-title text-default">إعادة الفصل الدراسي</div>
+										</a>
+									</td>
+									<td class="table-inbox-message">
+										<span class="table-inbox-subject">لقد تم رفض الطلب</span>
+										<span class="table-inbox-preview"></span>
+									</td>
+									<td class="table-inbox-attachment">
+										<i class="icon-download mr-10"></i>
+										<i class="icon-book"></i>
+									</td>
+									<td class="table-inbox-time">
+										Dec 5
+									</td>
+								</tr>
+
+								<tr>
+									<td class="table-inbox-checkbox rowlink-skip">
+										<input type="checkbox" class="styled">
+									</td>
+									<td class="table-inbox-star rowlink-skip">
+										<a href="javascript:void(0)">
+											<i class="icon-star-empty3 text-muted"></i>
+										</a>
+									</td>
+									<td class="table-inbox-image">
+										<img src="assets/images/brands/twitter.png" class="img-circle img-xs" alt="">
+									</td>
+									<td class="table-inbox-name">
+										<a href="#">
+											<div class="letter-icon-title text-default">حفب التخرج السنوي</div>
+										</a>
+									</td>
+									<td class="table-inbox-message">
+										<span class="table-inbox-subject">يرجى التوجه لقسم شوؤون الطلب لاستلام المستلزمات الخاصة بحفل التخرج السنوي</span>
+										<span class="table-inbox-preview"></span>
+									</td>
+									<td class="table-inbox-attachment">
+										<i class="icon-book"></i>
+									</td>
+									<td class="table-inbox-time">
+										Dec 4
+									</td>
+								</tr>
+
+								<tr>
+									<td class="table-inbox-checkbox rowlink-skip">
+										<input type="checkbox" class="styled">
+									</td>
+									<td class="table-inbox-star rowlink-skip">
+										<a href="javascript:void(0)">
+											<i class="icon-star-full2 text-warning-300"></i>
+										</a>
+									</td>
+									<td class="table-inbox-image">
+										<i class="icon-file-text2 text-success-400 icon-2x no-edge-top mt-5"></i>
+									</td>
+									<td class="table-inbox-name">
+										<a href="#">
+											<div class="letter-icon-title text-default">السكن الجامعي</div>
+										</a>
+									</td>
+									<td class="table-inbox-message">
+										<span class="table-inbox-subject"></span>
+										<span class="table-inbox-preview"><span>تحميل</span>: 1 من اصل 3 |<span> صالح لغاية</span> : 2021-01-02</span>
+									</td>
+									<td class="table-inbox-attachment">
+										<i class="icon-download mr-10"></i>
+										<i class="icon-book"></i>
+									</td>
+									<td class="table-inbox-time">
+										Dec 4
+									</td>
+								</tr>
+
+								<tr>
+									<td class="table-inbox-checkbox rowlink-skip">
+										<input type="checkbox" class="styled">
+									</td>
+									<td class="table-inbox-star rowlink-skip">
+										<a href="javascript:void(0)">
+											<i class="icon-star-full2 text-warning-300"></i>
+										</a>
+									</td>
+									<td class="table-inbox-image">
+										<i class="icon-file-text2 text-success-400 icon-2x no-edge-top mt-5"></i>
+									</td>
+									<td class="table-inbox-name">
+										<a href="#">
+											<div class="letter-icon-title text-default">اعتذار عن مقرر </div>
+										</a>
+									</td>
+									<td class="table-inbox-message">
+										<span class="table-inbox-subject"></span>
+										<span class="table-inbox-preview"><span>تحميل</span>: 1 من اصل 3 |<span> صالح لغاية</span> : 2021-01-02</span>
+									</td>
+									<td class="table-inbox-attachment">
+										<i class="icon-download mr-10"></i>
+										<i class="icon-book"></i>
+									</td>
+									<td class="table-inbox-time">
+										Dec 4
+									</td>
+								</tr>
+
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<!-- /single line -->
+
+
+			</div>
+			<!-- Main content -->
+
+		</div>
+		<!-- /page content -->
+
+	</div>
+	<!-- /page container -->
+
+
+	<!-- Footer -->
+	<div class="footer text-muted">
+		&copy; 2020. Copyrights </a>
+	</div>
+	<!-- /footer -->
+
+
+
+
+
+
+
+
+</body>
+
+</html>

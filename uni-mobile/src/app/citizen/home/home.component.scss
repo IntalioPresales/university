@@ -1,0 +1,106 @@
+/* Custom Skeleton Line Height and Margin */
+.custom-skeleton ion-skeleton-text {
+  line-height: 13px;
+}
+
+.custom-skeleton ion-skeleton-text:last-child {
+  margin-bottom: 5px;
+}
+
+$categories: (ionic: var(--ion-color-primary),
+  angular: #ac282b,
+  communication: #8e8d93,
+  tooling: #fe4c52,
+  services: #fd8b2d,
+  design: #fed035,
+  workshop: #69bb7b,
+  food: #3bc7c4,
+  documentation: #b16be3,
+  navigation: #6600cc);
+
+.titlecss {
+  font-size: 15px !important;
+  font-weight: 700;
+  color: #3880FF;
+}
+
+.subtitlecss {
+  font-weight: normal;
+  line-height: 1;
+  padding-top: 2%;
+  color: #999999;
+}
+
+h3 {
+  white-space: initial;
+}
+
+.subtitlecss {
+  color: red;
+}
+
+.dd {
+  background-color: red;
+}
+
+
+.e-card {
+  height: 95px;
+  display: flex;
+  justify-content: space-between;
+  background-color: #f7f7f7;
+  padding: 10px 17px 10px 0px;
+
+  .e-left {
+    flex: 1 0 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #bbb;
+    font-size: 18px;
+    font-family: "Fugaz One";
+
+  }
+
+  .e-right {
+    flex: 1 0 80%;
+    background-color: #fff;
+    border-radius: 6px;
+    display: flex;
+    padding: 10px;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #e8e8e8;
+
+    .e-content {
+      align-self: end;
+
+      .title {
+        font-family: "Poppins", sans-serif;
+        font-size: 14px;
+        color: #3880ff;
+      }
+
+      .cost {
+        font-family: "Poppins", sans-serif;
+        font-size: 14px;
+        color: #6f7681;
+        font-weight: 600;
+        padding-top: 7px;
+      }
+    }
+
+    .e-icon {
+      color: #3880ff;
+      font-size: 20px;
+    }
+  }
+}
+
+.item-inner,
+.sc-ion-label {
+  background: #fff;
+  border-radius: 6px;
+  padding: 8px;
+}

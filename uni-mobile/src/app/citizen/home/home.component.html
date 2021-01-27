@@ -1,0 +1,277 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button menu="citizen-menu"></ion-menu-button>
+      <!-- <ion-back-button></ion-back-button> -->
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button>
+        <span *ngIf="!ios">
+          <ion-icon slot="icon-only" name="log-out" [routerLink]="['/login']" routerLinkActive="router-link-active"></ion-icon>
+        </span>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-title>Create A Request</ion-title>
+  </ion-toolbar>
+  <ion-toolbar>
+    <ion-segment [(ngModel)]="segment">
+      <ion-segment-button value="trans" style="width: 20%;">
+        <span class="titlecss">List</span>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content fullscreen="true">
+
+
+
+  <ion-list *ngIf="segment=='trans'" [routerLink]="['/citizen/new-request-form']" routerLinkActive="router-link-active">
+    <!-- <ion-list-header style="margin-bottom:2%">
+      <ion-label>
+        <span class="subtitlecss">Samples of requests for citizen transactions in the municipality, and information related to it</span>
+      </ion-label>
+    </ion-list-header> -->
+
+
+    <!-- CARD -->
+    <div class="e-card" [routerLink]="['/citizen/new-request-form']">
+      <div class="e-left">
+        <div>12</div>
+        <div>Days</div>
+      </div>
+      <div class="e-right">
+        <div class="e-content">
+          <div class="title">Certification</div>
+          <div class="cost"> 10 USD</div>
+        </div>
+        <ion-icon class="e-icon" name="chevron-forward-outline"></ion-icon>
+      </div>
+    </div>
+    <!-- /CARD -->
+
+    <!-- CARD -->
+    <div class="e-card" [routerLink]="['/citizen/new-request-form']">
+      <div class="e-left">
+        <div>6</div>
+        <div>Days</div>
+      </div>
+      <div class="e-right">
+        <div class="e-content">
+          <div class="title">Online admission application</div>
+          <div class="cost"> 120 USD</div>
+        </div>
+        <ion-icon class="e-icon" name="chevron-forward-outline"></ion-icon>
+      </div>
+    </div>
+    <!-- /CARD -->
+
+    <!-- CARD -->
+    <div class="e-card" [routerLink]="['/citizen/new-request-form']">
+      <div class="e-left">
+        <div>4</div>
+        <div>Days</div>
+      </div>
+      <div class="e-right">
+        <div class="e-content">
+          <div class="title">An apology for the study</div>
+          <div class="cost"> 150 USD</div>
+        </div>
+        <ion-icon class="e-icon" name="chevron-forward-outline"></ion-icon>
+      </div>
+    </div>
+    <!-- /CARD -->
+
+    <!-- CARD -->
+    <div class="e-card" [routerLink]="['/citizen/new-request-form']">
+      <div class="e-left">
+        <div>2</div>
+        <div>Days</div>
+      </div>
+      <div class="e-right">
+        <div class="e-content">
+          <div class="title">Re-enrollment for the semester</div>
+          <div class="cost"> 60 USD</div>
+        </div>
+        <ion-icon class="e-icon" name="chevron-forward-outline"></ion-icon>
+      </div>
+    </div>
+    <!-- /CARD -->
+
+    <!-- CARD -->
+    <div class="e-card" [routerLink]="['/citizen/new-request-form']">
+      <div class="e-left">
+        <div>1</div>
+        <div>Days</div>
+      </div>
+      <div class="e-right">
+        <div class="e-content">
+          <div class="title">Apology for a course</div>
+          <div class="cost">220 USD</div>
+        </div>
+        <ion-icon class="e-icon" name="chevron-forward-outline"></ion-icon>
+      </div>
+    </div>
+    <!-- /CARD -->
+
+    <!-- CARD -->
+    <div class="e-card" [routerLink]="['/citizen/new-request-form']">
+      <div class="e-left">
+        <div>1</div>
+        <div>Days</div>
+      </div>
+      <div class="e-right">
+        <div class="e-content">
+          <div class="title">Apply for university housing</div>
+          <div class="cost"> 350 USD</div>
+        </div>
+        <ion-icon class="e-icon" name="chevron-forward-outline"></ion-icon>
+      </div>
+    </div>
+    <!-- /CARD -->
+
+
+
+    <!-- <ion-item>
+      <ion-icon name="reader" slot="start"></ion-icon>
+      <ion-label>
+        <h3>
+          License application for permanent and temporary advertising
+        </h3>
+        <p>
+          100 LBP
+        </p>
+      </ion-label>
+    </ion-item> -->
+    <!-- <ion-item>
+      <ion-icon name="reader" slot="start"></ion-icon>
+      <ion-label>
+        <h3>
+          Lease registration application
+        </h3>
+        <p>
+          100 LBP
+        </p>
+      </ion-label>
+    </ion-item> -->
+    <!-- <ion-item>
+      <ion-icon name="reader" slot="start"></ion-icon>
+      <ion-label>
+        <h3>
+          Municipal fee installment application
+        </h3>
+        <p>
+          100 LBP
+        </p>
+      </ion-label>
+    </ion-item> -->
+    <!-- <ion-item>
+      <ion-icon name="reader" slot="start"></ion-icon>
+      <ion-label>
+        <h3>
+          Clearance request
+        </h3>
+        <p>
+          100 LBP
+        </p>
+      </ion-label>
+    </ion-item> -->
+    <!-- <ion-item>
+      <ion-icon name="reader" slot="start"></ion-icon>
+      <ion-label>
+        <h3>
+          Request for modification of the destination
+        </h3>
+        <p>
+          100 LBP
+        </p>
+      </ion-label>
+    </ion-item> -->
+    <!-- <ion-item>
+      <ion-icon name="reader" slot="start"></ion-icon>
+      <ion-label>
+        <h3>
+          Request to pay a municipality fee
+        </h3>
+        <p>
+          100 LBP
+        </p>
+      </ion-label>
+    </ion-item> -->
+  </ion-list>
+
+
+  <ion-list *ngIf="segment=='forms'" [routerLink]="['/citizen/new-request-form']" routerLinkActive="router-link-active">
+    <!-- <ion-list-header style="margin-bottom:2%">
+      <ion-label>
+        <span class="subtitlecss">Forms related to municipal fees and how to fill them out</span>
+      </ion-label>
+    </ion-list-header> -->
+
+    <!-- CARD -->
+    <div *ngFor="let item of forms" class="e-card" [routerLink]="['/citizen/new-request-form']">
+      <div class="e-left">
+        <div>{{item.days}}</div>
+        <div>Days</div>
+      </div>
+      <div class="e-right">
+        <div class="e-content">
+          <div class="title">{{item.title}}</div>
+          <div class="cost"> {{item.cost}}</div>
+        </div>
+        <ion-icon class="e-icon" name="chevron-forward-outline"></ion-icon>
+      </div>
+    </div>
+    <!-- /CARD -->
+
+    <!-- <ion-item>
+      <ion-icon name="reader" slot="start"></ion-icon>
+      <ion-label>
+        <h3>
+          License form for permanent and temporary advertising
+        </h3>
+        <p>
+          100 LBP
+        </p>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-icon name="reader" slot="start"></ion-icon>
+      <ion-label>
+        <h3>
+          A form for registering lease contracts
+        </h3>
+        <p>
+          100 LBP
+        </p>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-icon name="reader" slot="start"></ion-icon>
+      <ion-label>
+        <h3>
+          Building permit form
+        </h3>
+        <p>
+          100 LBP
+        </p>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-icon name="reader" slot="start"></ion-icon>
+      <ion-label>
+        <h3>
+          Permission form for drawing on auctions
+        </h3>
+        <p>
+          100 LBP
+        </p>
+      </ion-label>
+    </ion-item> -->
+
+  </ion-list>
+
+
+</ion-content>

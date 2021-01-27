@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Digital Student Workspace</title>
+
+	<!-- Global stylesheets -->
+	<link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet" type="text/css">
+	<link href="assets/css/icons/icomoon/styles.css" rel="stylesheet" type="text/css">
+	<link href="assets/css/bootstrap.css" rel="stylesheet" type="text/css">
+	<link href="assets/css/core.css" rel="stylesheet" type="text/css">
+	<link href="assets/css/components.css" rel="stylesheet" type="text/css">
+	<link href="assets/css/colors.css" rel="stylesheet" type="text/css">
+	<link href="https://fonts.googleapis.com/css?family=Cairo&display=swap" rel="stylesheet">
+	<!-- /global stylesheets -->
+
+	<!-- Core JS files -->
+	<script type="text/javascript" src="assets/js/plugins/loaders/pace.min.js"></script>
+	<script type="text/javascript" src="assets/js/core/libraries/jquery.min.js"></script>
+	<script type="text/javascript" src="assets/js/core/libraries/bootstrap.min.js"></script>
+	<script type="text/javascript" src="assets/js/plugins/loaders/blockui.min.js"></script>
+	<script type="text/javascript" src="assets/js/plugins/ui/nicescroll.min.js"></script>
+	<script type="text/javascript" src="assets/js/plugins/ui/drilldown.js"></script>
+	<!-- /core JS files -->
+
+	<!-- Theme JS files -->
+	<script type="text/javascript" src="assets/js/plugins/forms/wizards/steps.min.js"></script>
+	<script type="text/javascript" src="assets/js/plugins/forms/selects/select2.min.js"></script>
+	<script type="text/javascript" src="assets/js/plugins/forms/styling/uniform.min.js"></script>
+	<script type="text/javascript" src="assets/js/core/libraries/jasny_bootstrap.min.js"></script>
+	<script type="text/javascript" src="assets/js/plugins/forms/validation/validate.min.js"></script>
+	<script type="text/javascript" src="assets/js/plugins/extensions/cookie.js"></script>
+
+	<script type="text/javascript" src="assets/js/core/app.js"></script>
+	<script type="text/javascript" src="assets/js/pages/citizen-new-request.js"></script>
+	<!-- /theme JS files -->
+
+	<style>
+		.overviewCard {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			padding: 12px;
+			background-color: #FFF;
+			transform: translateY(0);
+			transition: all .3s;
+			box-shadow: 1px 1px 1px #ddd;
+		}
+
+		.overviewCard-icon--calendar {
+			background-color: #27ae60;
+		}
+
+			.overviewCard-icon {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			height: 60px;
+			width: 60px;
+			border-radius: 50%;
+			font-size: 21px;
+			color: #fff;
+		}
+	
+		.overviewCard-description {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
+
+		.overviewCard-title {
+			font-size: 18px !important;
+			color: #1BBAE1;
+			margin: 0;
+			margin-top: -30px;
+		}
+
+		.text-light {
+			font-weight: 300;
+		}
+
+		.overviewCard-subtitle {
+			margin: 2px;
+			color: #777;
+		}
+
+		.main-overview {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(265px, 1fr));
+			grid-auto-rows: 94px;
+			grid-gap: 30px;
+			/* margin: 20px; */
+		}
+
+		.overviewCard:hover {
+			transform: translateY(-3px);
+			box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
+			cursor: pointer;
+		}
+		
+
+		.overviewCard-subtitle {
+			/* margin-top: 7px; */
+			position: absolute;
+			bottom: 6px;
+			right: 13px;
+			padding: 5px;
+			font-weight: 600;
+			color: #2e2e2e;
+			font-size: 16px;
+			font-family: 'Roboto';
+			/* border: 1px solid #cacaca;
+			border-radius: 4px; */
+		}
+				.navbar-brand > img {
+    display: inline !important;
+    height: 28px !important;
+	width: 28px;
+}
+
+		.e-category {
+			font-size: 18px;
+			font-weight: 700;
+			color: #246287 !important;
+		}
+
+		.attestations .panel {
+			padding: 13px;
+		}
+
+		.attestations .panel .fab-icon-open {
+			font-size: 50px;
+			color: #717376;
+			margin-bottom: 15px;
+			margin-top: 10px;
+			cursor: pointer;
+		}
+
+		.attestations .content-group-sm {
+			margin-bottom: 0!important;
+		}
+		.attestations .no-margin.text-semibold{
+			cursor: pointer;
+		}
+	</style>
+</head>
+
+<body>
+
+	<!-- Main navbar -->
+	<div class="navbar navbar-inverse">
+		<div class="navbar-header">
+			<a class="navbar-brand" href="index.html">
+				<!-- <img src="assets/images/logo_light.png" alt=""> -->
+			<i class="icon-shutter mr-5"></i>
+				<strong style="font-size: 16px;">المنصة الإلكترونية لخدمات الجامعة</strong>
+			</a>
+
+			<ul class="nav navbar-nav pull-right visible-xs-block">
+				<li><a data-toggle="collapse" data-target="#navbar-mobile"><i class="icon-tree5"></i></a></li>
+			</ul>
+		</div>
+
+		<div class="navbar-collapse collapse" id="navbar-mobile">
+			<ul class="nav navbar-nav">
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+						<i class="icon-git-compare"></i>
+						<span class="visible-xs-inline-block position-right">Git updates</span>
+						<span class="badge bg-warning-400">9</span>
+					</a>
+
+					<div class="dropdown-menu dropdown-content">
+						<div class="dropdown-content-heading">
+							Git updates
+							<ul class="icons-list">
+								<li><a href="#"><i class="icon-sync"></i></a></li>
+							</ul>
+						</div>
+
+						<ul class="media-list dropdown-content-body width-350">
+							<li class="media">
+								<div class="media-left">
+									<a href="#" class="btn border-primary text-primary btn-flat btn-rounded btn-icon btn-sm"><i class="icon-git-pull-request"></i></a>
+								</div>
+
+								<div class="media-body">
+									Drop the IE <a href="#">specific hacks</a> for temporal inputs
+									<div class="media-annotation">4 minutes ago</div>
+								</div>
+							</li>
+
+							<li class="media">
+								<div class="media-left">
+									<a href="#" class="btn border-warning text-warning btn-flat btn-rounded btn-icon btn-sm"><i class="icon-git-commit"></i></a>
+								</div>
+
+								<div class="media-body">
+									Add full font overrides for popovers and tooltips
+									<div class="media-annotation">36 minutes ago</div>
+								</div>
+							</li>
+
+							<li class="media">
+								<div class="media-left">
+									<a href="#" class="btn border-info text-info btn-flat btn-rounded btn-icon btn-sm"><i class="icon-git-branch"></i></a>
+								</div>
+
+								<div class="media-body">
+									<a href="#">Chris Arney</a> created a new <span class="text-semibold">Design</span> branch
+									<div class="media-annotation">2 hours ago</div>
+								</div>
+							</li>
+
+							<li class="media">
+								<div class="media-left">
+									<a href="#" class="btn border-success text-success btn-flat btn-rounded btn-icon btn-sm"><i class="icon-git-merge"></i></a>
+								</div>
+
+								<div class="media-body">
+									<a href="#">Eugene Kopyov</a> merged <span class="text-semibold">Master</span> and <span class="text-semibold">Dev</span> branches
+									<div class="media-annotation">Dec 18, 18:36</div>
+								</div>
+							</li>
+
+							<li class="media">
+								<div class="media-left">
+									<a href="#" class="btn border-primary text-primary btn-flat btn-rounded btn-icon btn-sm"><i class="icon-git-pull-request"></i></a>
+								</div>
+
+								<div class="media-body">
+									Have Carousel ignore keyboard events
+									<div class="media-annotation">Dec 12, 05:46</div>
+								</div>
+							</li>
+						</ul>
+
+						<div class="dropdown-content-footer">
+							<a href="#" data-popup="tooltip" title="All activity"><i class="icon-menu display-block"></i></a>
+						</div>
+					</div>
+				</li>
+
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+						<i class="icon-people"></i>
+						<span class="visible-xs-inline-block position-right">Users</span>
+					</a>
+
+					<div class="dropdown-menu dropdown-content">
+						<div class="dropdown-content-heading">
+							Users online
+							<ul class="icons-list">
+								<li><a href="#"><i class="icon-gear"></i></a></li>
+							</ul>
+						</div>
+
+						<ul class="media-list dropdown-content-body width-300">
+							<li class="media">
+								<div class="media-left"><img src="assets/images/placeholder.jpg" class="img-circle img-sm" alt=""></div>
+								<div class="media-body">
+									<a href="#" class="media-heading text-semibold">Jordana Ansley</a>
+									<span class="display-block text-muted text-size-small">Lead web developer</span>
+								</div>
+								<div class="media-right media-middle"><span class="status-mark border-success"></span></div>
+							</li>
+
+							<li class="media">
+								<div class="media-left"><img src="assets/images/placeholder.jpg" class="img-circle img-sm" alt=""></div>
+								<div class="media-body">
+									<a href="#" class="media-heading text-semibold">Will Brason</a>
+									<span class="display-block text-muted text-size-small">Marketing manager</span>
+								</div>
+								<div class="media-right media-middle"><span class="status-mark border-danger"></span></div>
+							</li>
+
+							<li class="media">
+								<div class="media-left"><img src="assets/images/placeholder.jpg" class="img-circle img-sm" alt=""></div>
+								<div class="media-body">
+									<a href="#" class="media-heading text-semibold">Hanna Walden</a>
+									<span class="display-block text-muted text-size-small">Project manager</span>
+								</div>
+								<div class="media-right media-middle"><span class="status-mark border-success"></span></div>
+							</li>
+
+							<li class="media">
+								<div class="media-left"><img src="assets/images/placeholder.jpg" class="img-circle img-sm" alt=""></div>
+								<div class="media-body">
+									<a href="#" class="media-heading text-semibold">Dori Laperriere</a>
+									<span class="display-block text-muted text-size-small">Business developer</span>
+								</div>
+								<div class="media-right media-middle"><span class="status-mark border-warning-300"></span></div>
+							</li>
+
+							<li class="media">
+								<div class="media-left"><img src="assets/images/placeholder.jpg" class="img-circle img-sm" alt=""></div>
+								<div class="media-body">
+									<a href="#" class="media-heading text-semibold">Vanessa Aurelius</a>
+									<span class="display-block text-muted text-size-small">UX expert</span>
+								</div>
+								<div class="media-right media-middle"><span class="status-mark border-grey-400"></span></div>
+							</li>
+						</ul>
+
+						<div class="dropdown-content-footer">
+							<a href="#" data-popup="tooltip" title="All users"><i class="icon-menu display-block"></i></a>
+						</div>
+					</div>
+				</li>
+			</ul>
+
+			<p class="navbar-text"><span class="label bg-success-400">متصل</span></p>
+
+			<ul class="nav navbar-nav navbar-right">
+				<li class="dropdown language-switch">
+					<a class="dropdown-toggle" data-toggle="dropdown">
+						<img src="assets/images/flags/lb.png" class="position-left" alt="">
+						عربي
+						<span class="caret"></span>
+					</a>
+
+					<ul class="dropdown-menu">
+						<li><a class="deutsch"><img src="assets/images/flags/de.png" alt=""> Deutsch</a></li>
+						<li><a class="ukrainian"><img src="assets/images/flags/ua.png" alt=""> Українська</a></li>
+						<li><a class="english"><img src="assets/images/flags/gb.png" alt=""> English</a></li>
+						<li><a class="espana"><img src="assets/images/flags/es.png" alt=""> España</a></li>
+						<li><a class="russian"><img src="assets/images/flags/ru.png" alt=""> Русский</a></li>
+					</ul>
+				</li>
+
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+						<i class="icon-bubbles4"></i>
+						<span class="visible-xs-inline-block position-right">Messages</span>
+						<span class="badge bg-warning-400">2</span>
+					</a>
+
+					<div class="dropdown-menu dropdown-content width-350">
+						<div class="dropdown-content-heading">
+							Messages
+							<ul class="icons-list">
+								<li><a href="#"><i class="icon-compose"></i></a></li>
+							</ul>
+						</div>
+
+						<ul class="media-list dropdown-content-body">
+							<li class="media">
+								<div class="media-left">
+									<img src="assets/images/placeholder.jpg" class="img-circle img-sm" alt="">
+									<span class="badge bg-danger-400 media-badge">5</span>
+								</div>
+
+								<div class="media-body">
+									<a href="#" class="media-heading">
+										<span class="text-semibold">James Alexander</span>
+										<span class="media-annotation pull-right">04:58</span>
+									</a>
+
+									<span class="text-muted">who knows, maybe that would be the best thing for me...</span>
+								</div>
+							</li>
+
+							<li class="media">
+								<div class="media-left">
+									<img src="assets/images/placeholder.jpg" class="img-circle img-sm" alt="">
+									<span class="badge bg-danger-400 media-badge">4</span>
+								</div>
+
+								<div class="media-body">
+									<a href="#" class="media-heading">
+										<span class="text-semibold">Margo Baker</span>
+										<span class="media-annotation pull-right">12:16</span>
+									</a>
+
+									<span class="text-muted">That was something he was unable to do because...</span>
+								</div>
+							</li>
+
+							<li class="media">
+								<div class="media-left"><img src="assets/images/placeholder.jpg" class="img-circle img-sm" alt=""></div>
+								<div class="media-body">
+									<a href="#" class="media-heading">
+										<span class="text-semibold">Jeremy Victorino</span>
+										<span class="media-annotation pull-right">22:48</span>
+									</a>
+
+									<span class="text-muted">But that would be extremely strained and suspicious...</span>
+								</div>
+							</li>
+
+							<li class="media">
+								<div class="media-left"><img src="assets/images/placeholder.jpg" class="img-circle img-sm" alt=""></div>
+								<div class="media-body">
+									<a href="#" class="media-heading">
+										<span class="text-semibold">Beatrix Diaz</span>
+										<span class="media-annotation pull-right">Tue</span>
+									</a>
+
+									<span class="text-muted">What a strenuous career it is that I've chosen...</span>
+								</div>
+							</li>
+
+							<li class="media">
+								<div class="media-left"><img src="assets/images/placeholder.jpg" class="img-circle img-sm" alt=""></div>
+								<div class="media-body">
+									<a href="#" class="media-heading">
+										<span class="text-semibold">Richard Vango</span>
+										<span class="media-annotation pull-right">Mon</span>
+									</a>
+
+									<span class="text-muted">Other travelling salesmen live a life of luxury...</span>
+								</div>
+							</li>
+						</ul>
+
+						<div class="dropdown-content-footer">
+							<a href="#" data-popup="tooltip" title="All messages"><i class="icon-menu display-block"></i></a>
+						</div>
+					</div>
+				</li>
+
+				<li class="dropdown dropdown-user">
+					<a class="dropdown-toggle" data-toggle="dropdown">
+						<img src="assets/images/mazen.png" alt="">
+						<span>مازن فرح</span>
+						<i class="caret"></i>
+					</a>
+
+					<ul class="dropdown-menu dropdown-menu-right">
+						<li><a href="#"><i class="icon-user-plus"></i> My profile</a></li>
+						<li><a href="#"><i class="icon-coins"></i> My balance</a></li>
+						<li><a href="#"><span class="badge badge-warning pull-right">58</span> <i class="icon-comment-discussion"></i> Messages</a></li>
+						<li class="divider"></li>
+						<li><a href="#"><i class="icon-cog5"></i> Account settings</a></li>
+						<li><a href="#"><i class="icon-switch2"></i> Logout</a></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<!-- /main navbar -->
+
+
+	<!-- Second navbar -->
+	<div class="navbar navbar-default" id="navbar-second">
+		<ul class="nav navbar-nav no-border visible-xs-block">
+			<li><a class="text-center collapsed" data-toggle="collapse" data-target="#navbar-second-toggle"><i class="icon-menu7"></i></a></li>
+		</ul>
+
+		<div class="navbar-collapse collapse" id="navbar-second-toggle">
+			<ul class="nav navbar-nav">
+				<li><a href="citizen-home.html"><i class="icon-display4 position-left"></i> الصفحة الرئيسية</a></li>
+				<li><a href="citizen-new-request.html"><i class="icon-display4 position-left"></i>إنشاء طلب</a></li>
+				<li><a href="citizen-grades.html"><i class="icon-display4 position-left"></i>لائحة العلامات</a></li>
+				<li><a href="citizen-calendar.html"><i class="icon-display4 position-left"></i>مواعيد طلبات</a></li>
+				<li><a href="citizen-archive.html"><i class="icon-display4 position-left"></i>أرشيف الطلبات</a></li>
+				<li><a href="citizen-wallet.html"><i class="icon-display4 position-left"></i>المحفظة الالكترونية</a></li>
+				<li><a href="citizen-inbox.html"><i class="icon-display4 position-left"></i>صندوق الوارد</a></li>
+			</ul>
+
+			<ul class="nav navbar-nav navbar-right">
+				<!-- <li>
+						<a href="changelog.html">
+							<i class="icon-history position-left"></i>
+							Changelog
+							<span class="label label-inline position-right bg-success-400">1.6</span>
+						</a>
+					</li> -->
+
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+						<i class="icon-cog3"></i>
+						<span class="visible-xs-inline-block position-right">Share</span>
+						<span class="caret"></span>
+					</a>
+
+					<ul class="dropdown-menu dropdown-menu-right">
+						<li><a href="#"><i class="icon-user-lock"></i>أمن الحساب</a></li>
+						<li><a href="#"><i class="icon-statistics"></i> تحليلات</a></li>
+						<li><a href="#"><i class="icon-accessibility"></i> إمكانية الوصول</a></li>
+						<li class="divider"></li>
+						<li><a href="#"><i class="icon-gear"></i> جميع الإعدادات</a></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<!-- /second navbar -->
+
+
+	<!-- Page header -->
+	<div class="page-header">
+		<div class="page-header-content">
+			<div class="page-title">
+				<h4><i class="icon-arrow-right6 position-left"></i> <span class="text-semibold">إنشاء طلب</span> </h4>
+
+				<ul class="breadcrumb breadcrumb-caret position-right">
+					<li>إنشاء طلب</li>
+					<li class="active">انواع الطلبات</li>
+				</ul>
+			</div>
+
+			<!-- <div class="heading-elements">
+					<div class="heading-btn-group">
+						<a href="#" class="btn btn-link btn-float has-text"><i class="icon-bars-alt text-primary"></i><span>Statistics</span></a>
+						<a href="#" class="btn btn-link btn-float has-text"><i class="icon-calculator text-primary"></i> <span>Invoices</span></a>
+						<a href="#" class="btn btn-link btn-float has-text"><i class="icon-calendar5 text-primary"></i> <span>Schedule</span></a>
+					</div>
+				</div> -->
+		</div>
+	</div>
+	<!-- /page header -->
+
+
+	<!-- Page container -->
+	<div class="page-container">
+
+		<!-- Page content -->
+		<div class="page-content">
+
+			<!-- Main content -->
+			<div class="content-wrapper">
+
+				<div class="attestations">
+
+					<!-- BLOCK -->
+					<div>
+						<h6 class="content-group text-semibold">
+							<span class="e-category">طلبات </span>
+							<small class="display-block">
+								نماذج عن طلبات معاملات الطلاب في الجامعة، والمعلومات المتعلقة بها
+							</small>
+						</h6>
+
+						<div class="row">
+
+							<div class="col-md-3">
+								<div class="panel panel-body border-top-danger text-center">
+									<i onclick="navigateToForm()" class="fab-icon-open icon-vcard"></i>
+									<h6 onclick="navigateToForm()" class="no-margin text-semibold">طلب افادة عن شهادة التخرج</h6>
+									<p class="content-group-sm text-muted">10.00 د.أ  </p>
+								</div>
+							</div>
+
+							<div class="col-md-3">
+								<div class="panel panel-body border-top-danger text-center">
+									<i onclick="navigateToTranscriptForm()" class="fab-icon-open icon-file-check"></i>
+									<h6 onclick="navigateToTranscriptForm()" class="no-margin text-semibold">طلب الملف الأكاديمي</h6>
+									<p class="content-group-sm text-muted">10.00 د.أ </p>
+								</div>
+							</div>
+
+							<div class="col-md-3">
+								<div class="panel panel-body border-top-danger text-center">
+									<i onclick="navigateToForm()" class="fab-icon-open icon-clipboard5"></i>
+									<h6 onclick="navigateToForm()" class="no-margin text-semibold">طلب اعتذار عن الدراسة</h6>
+									<p class="content-group-sm text-muted">130.00 د.أ </p>
+								</div>
+							</div>
+
+							<div class="col-md-3">
+								<div class="panel panel-body border-top-danger text-center">
+									<i onclick="navigateToForm()" class="fab-icon-open icon-repo-forked"></i>
+									<h6 onclick="navigateToForm()" class="no-margin text-semibold">طلب إعادة قيد للفصل الدراسي	</h6>
+									<p class="content-group-sm text-muted">100.00 د.أ </p>
+								</div>
+							</div>
+						
+
+						</div>
+
+						<div class="row">
+
+							<div class="col-md-3">
+								<div class="panel panel-body border-top-danger text-center">
+									<i onclick="navigateToForm()" class="fab-icon-open icon-notebook"></i>
+									<h6 onclick="navigateToForm()" class="no-margin text-semibold">طلب اعتذار عن مقرر دراسي	</h6>
+									<p class="content-group-sm text-muted">100.00 د.أ </p>
+								</div>
+							</div>
+							<div class="col-md-3">
+								<div class="panel panel-body border-top-danger text-center">
+									<i onclick="navigateToForm()" class="fab-icon-open icon-office"></i>
+									<h6 onclick="navigateToForm()" class="no-margin text-semibold">تقديم على السكن الجامعي	</h6>
+									<p class="content-group-sm text-muted">110.00 د.أ </p>
+								</div>
+							</div>
+
+							<div class="col-md-3">
+								<div class="panel panel-body border-top-danger text-center">
+									<i onclick="navigateToForm()" class="fab-icon-open icon-briefcase3"></i>
+									<h6 onclick="navigateToForm()" class="no-margin text-semibold">طلب القبول الإلكتروني للدراسات العليا</h6>
+									<p class="content-group-sm text-muted">120.00 د.أ </p>
+								</div>
+							</div>
+
+
+						</div>
+					</div>
+					<!-- / BLOCK -->
+
+					<!-- BLOCK -->
+					
+					<!-- / BLOCK -->
+
+				</div>
+
+			</div>
+			<!-- /main content -->
+
+		</div>
+		<!-- /page content -->
+
+	</div>
+	<!-- /page container -->
+
+
+	<!-- Footer -->
+	<div class="footer text-muted">
+		&copy; 2020. Copyrights </div>
+	<!-- /footer -->
+
+</body>
+
+</html>
